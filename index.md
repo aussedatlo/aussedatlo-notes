@@ -1,10 +1,8 @@
 ---
-title: 👋 Welcome to aussedatlo.me
+title: Hello there 👋
 ---
-# Intro
-
 Welcome to my website, where I note everything related to my self hosted journey.
 
 ## Posts
 
-- [[01-caddy-in-docker]]: 🐳 A simple/powerfull server/reverse proxy inside a docker container.
+- [[01-caddy-in-docker]]:  A simple/powerfull server/reverse proxy running inside a docker container 🐳.

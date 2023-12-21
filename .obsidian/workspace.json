@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "posts/01-caddy-in-docker.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "posts/01-caddy-in-docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "posts/01-caddy-in-docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "posts/01-caddy-in-docker.md"
               }
             }
           }
@@ -169,8 +169,10 @@
   },
   "active": "ce28f38240695c17",
   "lastOpenFiles": [
-    "posts/01-caddy-in-docker.md",
+    "Untitled.md",
+    "favicon.ico",
     "index.md",
+    "posts/01-caddy-in-docker.md",
     "posts"
   ]
 }

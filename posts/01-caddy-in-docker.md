@@ -39,7 +39,7 @@ docker network create caddy
 
 This network can be utilized to connect **Caddy** with others containers.
 
-Create a **docker-compose.yml** file that will be containing all the configuration below
+Create a `docker-compose.yml` file that will be containing all the configuration below
 
 ```yml
 version: "3.9"
@@ -64,8 +64,8 @@ networks:
       name: caddy
 ```
 
-Since **Caddy** will automatically handle all TLS certificates, it need to access the port **80** and **443**.
-The configuration will be in the **./Caddyfile** file.
+Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
+The configuration will be in the `Caddyfile` file.
 
 To initiate **Caddy**, execute the following command:
 
@@ -102,7 +102,7 @@ domain.name {
 }
 ```
 
-Add a volume in the **docker-compose.yml** matching the path of the website sources:
+Add a volume in the `docker-compose.yml` matching the path of the website sources:
 
 ```yml
 services:
@@ -117,7 +117,7 @@ services:
 
 **Caddy** can also be used as a reverse proxy.
 
-Given that **Caddy** is encapsulated within a Docker container with only ports **80** and **443** accessible,
+Given that **Caddy** is encapsulated within a Docker container with only ports `80` and `443` accessible,
 it is essential to obtain the IP address of the host machine in order to ensure proper redirection.
 
 ### Using Host IP address
@@ -136,8 +136,8 @@ subdomain.domain.name {
 }
 ```
 
-This **Caddy** configuration block sets up a reverse proxy for the domain **subdomain.domain.name**,
-directing incoming HTTP traffic to a backend server running on [http://\<host-ip\>:8080]().
+This **Caddy** configuration block sets up a reverse proxy for the domain `subdomain.domain.name`,
+directing incoming HTTP traffic to a backend server running on `http://<host-ip>:8080`.
 
 This is a common setup for routing requests from a subdomain to a specific service or application running on a backend server.
 
@@ -163,7 +163,7 @@ lighttpd:
   tty: true
 ```
 
-This basic webserver will serve a static website accessible through the URL [http://localhost:8080]() on the host machine.
+This basic webserver will serve a static website accessible through the URL `http://localhost:8080` on the host machine.
 
 To enable access through the **Caddy** reverse proxy, you can modify the configuration as follows:
 
@@ -196,5 +196,5 @@ subdomain.domain.name {
 }
 ```
 
-And voila, the lighttpd server will now be reachable using [https://subdomain.domain.name]()
-and not [http://\<host-ip\>:8080]().
+And voila, the **lighttpd** server will now be reachable using `https://subdomain.domain.name`
+and not `http://<host-ip>:8080`.
