@@ -5,9 +5,7 @@ tags:
   - docker
   - reverse-proxy
 ---
-
-
-# What is Caddy
+# 🛒 What is Caddy
 
 **Caddy v2**, a server-of-servers, is a Go application that is **fully open source**,
 capable of functioning both as a **server** and a **reverse proxy**.
@@ -21,7 +19,7 @@ it will automatically handle all certificates using issuers like [ZeroSSL](https
 
 ---
 
-# Run Caddy with Docker
+## Run Caddy with Docker
 
 **Caddy** is really easy to run with docker.
 
@@ -87,9 +85,9 @@ docker logs -f caddy
 
 ---
 
-# Configure Caddy
+## Configure Caddy
 
-## Using Caddy as a server
+### Using Caddy as a server
 
 **Caddy** can be used to serve a static website.
 
@@ -113,14 +111,14 @@ services:
     - /var/www/html/website:/var/www/html/website
 ```
 
-## Using Caddy as a reverse proxy
+### Using Caddy as a reverse proxy
 
 **Caddy** can also be used as a reverse proxy.
 
 Given that **Caddy** is encapsulated within a Docker container with only ports `80` and `443` accessible,
 it is essential to obtain the IP address of the host machine in order to ensure proper redirection.
 
-### Using Host IP address
+#### Using Host IP address
 
 To get the IP address of the host, run:
 
@@ -141,7 +139,7 @@ directing incoming HTTP traffic to a backend server running on `http://<host-ip>
 
 This is a common setup for routing requests from a subdomain to a specific service or application running on a backend server.
 
-### Using Docker host name
+#### Using Docker host name
 
 To direct your HTTP traffic to another Docker container,
 the most effective approach is to route it through the Docker host name of the target container.
@@ -167,7 +165,7 @@ This basic webserver will serve a static website accessible through the URL `htt
 
 To enable access through the **Caddy** reverse proxy, you can modify the configuration as follows:
 
-```yml
+```yml {9-12}
 lighttpd:
   container_name: lighttpd
   image: sebp/lighttpd:latest
@@ -198,3 +196,7 @@ subdomain.domain.name {
 
 And voila, the **lighttpd** server will now be reachable using `https://subdomain.domain.name`
 and not `http://<host-ip>:8080`.
+
+## Ressources
+
+- [Caddy Documentation](https://caddyserver.com/docs/)

@@ -33,7 +33,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/01-caddy-in-docker.md",
+                "file": "posts/02-caddy-hardening.md",
                 "mode": "source",
                 "source": false
               }
@@ -106,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/01-caddy-in-docker.md",
+                "file": "posts/02-caddy-hardening.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/01-caddy-in-docker.md",
+                "file": "posts/02-caddy-hardening.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/01-caddy-in-docker.md"
+                "file": "posts/02-caddy-hardening.md"
               }
             }
           }
@@ -169,10 +169,11 @@
   },
   "active": "ce28f38240695c17",
   "lastOpenFiles": [
+    "posts/01-caddy-in-docker.md",
+    "posts/02-caddy-hardening.md",
+    "index.md",
     "Untitled.md",
     "favicon.ico",
-    "index.md",
-    "posts/01-caddy-in-docker.md",
     "posts"
   ]
 }
