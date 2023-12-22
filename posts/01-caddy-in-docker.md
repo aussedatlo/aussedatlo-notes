@@ -62,7 +62,7 @@ networks:
 ```
 
 Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
-The configuration will be in the `Caddyfile` file.
+The configuration will be in the `Caddyfile` config file.
 
 To initiate **Caddy**, execute the following command:
 
