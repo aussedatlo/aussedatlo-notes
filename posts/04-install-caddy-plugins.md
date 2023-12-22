@@ -18,6 +18,8 @@ xcaddy build \
 ---
 ## Custom Docker image
 
+Create a `Dockerfile` file.
+
 ```docker
 FROM caddy:builder AS builder
 
