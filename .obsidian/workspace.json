@@ -1,31 +1,27 @@
 {
   "main": {
-    "id": "dea1e63b3a430b6b",
+    "id": "78ca5ab84e2382ce",
     "type": "split",
     "children": [
       {
-        "id": "963e4087ff6310c0",
+        "id": "030333459ebb86f6",
         "type": "tabs",
         "children": [
           {
-            "id": "ee0ee50d5d3d9942",
+            "id": "a1f55a2b918f20af",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "b6b0a9261afec5d9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "posts/02-caddy-hardening.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c84fd9bb941b8fbf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "posts/03-fail2ban-in-docker.md",
                 "mode": "source",
                 "source": false
               }
@@ -38,15 +34,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "de14140b9c140e56",
+    "id": "954a4b79a290f882",
     "type": "split",
     "children": [
       {
-        "id": "a7d47f2b8c805183",
+        "id": "fc42fb32831a1933",
         "type": "tabs",
         "children": [
           {
-            "id": "7eacf7ad169aac43",
+            "id": "1cb34808a8c6e2ce",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -56,7 +52,7 @@
             }
           },
           {
-            "id": "455fa5d1d43fe24c",
+            "id": "b9b9c87358af5598",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -71,7 +67,7 @@
             }
           },
           {
-            "id": "86abf09ce4897305",
+            "id": "47d11b9d18f46980",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -85,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "06fe9bce30020b83",
+    "id": "1a854bd66013115d",
     "type": "split",
     "children": [
       {
-        "id": "0a79a14592715fee",
+        "id": "b0d6e8609df19009",
         "type": "tabs",
         "children": [
           {
-            "id": "35c9f2a9264f328e",
+            "id": "d57089a72ea48c2d",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/03-fail2ban-in-docker.md",
+                "file": "posts/02-caddy-hardening.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,19 +106,19 @@
             }
           },
           {
-            "id": "07015ece6a7e85a3",
+            "id": "5ed520bec28d306c",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/03-fail2ban-in-docker.md",
+                "file": "posts/02-caddy-hardening.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "9eaa85de4b12d01a",
+            "id": "067495f19dda4a09",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -133,12 +129,12 @@
             }
           },
           {
-            "id": "f55ebdbf3f91e7c6",
+            "id": "aa449541d1ca6aed",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/03-fail2ban-in-docker.md"
+                "file": "posts/02-caddy-hardening.md"
               }
             }
           }
@@ -159,14 +155,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c84fd9bb941b8fbf",
+  "active": "b6b0a9261afec5d9",
   "lastOpenFiles": [
+    "posts/03-fail2ban-in-docker.md",
+    "posts/04-install-caddy-plugins.md",
+    "posts/05-fail2ban-for-caddy.md",
+    "index.md",
+    "posts/02-caddy-hardening.md",
     "posts/01-caddy-in-docker.md",
     "projects.md",
-    "posts/03-fail2ban-in-docker.md",
-    "experiences.md",
-    "posts/02-caddy-hardening.md",
-    "index.md",
-    "projects"
+    "posts",
+    "experiences.md"
   ]
 }

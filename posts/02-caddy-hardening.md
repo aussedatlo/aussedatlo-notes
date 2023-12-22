@@ -83,5 +83,5 @@ subdomain.domain.name {
 ---
 ## Ressources
 
-[Caddy Documentation: snippets](https://caddyserver.com/docs/caddyfile/concepts#snippets)
-[Caddy Documentation: headers syntax](https://caddyserver.com/docs/caddyfile/directives/header#syntax)
+- [Caddy Documentation: snippets](https://caddyserver.com/docs/caddyfile/concepts#snippets)
+- [Caddy Documentation: headers syntax](https://caddyserver.com/docs/caddyfile/directives/header#syntax)
