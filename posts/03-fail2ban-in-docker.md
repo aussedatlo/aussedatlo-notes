@@ -137,3 +137,7 @@ Status for the jail: sshd
   |- Total banned:     0  
   `- Banned IP list:
 ```
+
+---
+## Ressources
+- [Docker image from crazy-max](https://github.com/crazy-max/docker-fail2ban/tree/master)
