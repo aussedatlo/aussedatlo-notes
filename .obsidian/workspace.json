@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md",
+                "file": "posts/05-fail2ban-for-caddy.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md",
+                "file": "posts/05-fail2ban-for-caddy.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md",
+                "file": "posts/05-fail2ban-for-caddy.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md"
+                "file": "posts/05-fail2ban-for-caddy.md"
               }
             }
           }
@@ -161,14 +161,14 @@
   },
   "active": "c84fd9bb941b8fbf",
   "lastOpenFiles": [
+    "posts/04-install-caddy-plugins.md",
+    "projects.md",
+    "index.md",
+    "posts/02-caddy-hardening.md",
     "posts/03-fail2ban-in-docker.md",
     "posts/05-fail2ban-for-caddy.md",
-    "posts/04-install-caddy-plugins.md",
     "posts/01-caddy-in-docker.md",
-    "projects.md",
     "experiences.md",
-    "posts/02-caddy-hardening.md",
-    "index.md",
     "projects"
   ]
 }

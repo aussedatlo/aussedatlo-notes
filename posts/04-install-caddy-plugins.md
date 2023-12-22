@@ -7,6 +7,8 @@ tags:
 ---
 # 📦 How to Install Caddy Plugins
 
+> [!warning] Work in progress
+
 ---
 ## CLI for local instance
 

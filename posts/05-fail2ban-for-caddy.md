@@ -8,6 +8,8 @@ tags:
 ---
 # 🛡️ How to configure Fail2Ban for Caddy
 
+> [!warning] Work in progress
+
 From the previous post [[02-caddy-hardening]]
 
 ---
