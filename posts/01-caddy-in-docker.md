@@ -18,7 +18,6 @@ it will automatically handle all certificates using issuers like [ZeroSSL](https
 [Let's Encrypt](https://letsencrypt.org/) for example.
 
 ---
-
 ## Run Caddy with Docker
 
 **Caddy** is really easy to run with docker.
@@ -84,7 +83,6 @@ docker logs -f caddy
 ```
 
 ---
-
 ## Configure Caddy
 
 ### Using Caddy as a server
@@ -197,6 +195,7 @@ subdomain.domain.name {
 And voila, the **lighttpd** server will now be reachable using `https://subdomain.domain.name`
 and not `http://<host-ip>:8080`.
 
+---
 ## Ressources
 
 - [Caddy Documentation](https://caddyserver.com/docs/)

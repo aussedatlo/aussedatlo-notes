@@ -4,7 +4,6 @@ tags:
   - caddy
   - docker
   - reverse-proxy
-  - fail2ban
   - security
 ---
 # 🔒 How to secure Caddy instance
@@ -15,10 +14,11 @@ It can be dangerous because of the numerous bad actors that continuously scan th
 
 In this post, I will show you how to step-up the security of your **Caddy** server.
 
->[!hint]- How to install **Caddy** ?
+>[!hint]- How to install Caddy ?
 > Check out how to run **Caddy** in Docker: [[01-caddy-in-docker]]
 
-## Restrict to Home network
+---
+## Restrict to Home Network
 
 If you have some applications that are served with **Caddy** but you don't want them to be available outside of your home network, it's possible to configure **Caddy** to reject automatically all the non desired HTTPS requests that doesn't match your local IP range.
 
@@ -37,7 +37,7 @@ You can create a snippet on your `Caddyfile`:
 
 Then, import it on a domain declaration:
 
-```yml
+```yml {2}
 subdomain.domain.name {
   import safe
 
@@ -47,10 +47,41 @@ subdomain.domain.name {
 }
 ```
 
-> [!hint]
+> [!hint] Hint
 > In this example, all the traffic from an ip address different from the range `192.168.0.0` will be automatically aborted 🤯
 
-## Ban IPs with Fail2Ban
+---
+## Remove the `Server` Response Header
 
-> [!warning]
-> WIP
+By default, **Caddy** add a `Server: Caddy` response header that will expose the type of server you are running.
+
+Obviously, for security reasons, we don't want this information to be available in our HTTP responses.
+
+You can add a `common` snippet on top of your `Caddyfile`:
+
+```yml
+(common) {
+    header /* {
+        -Server
+    }
+}
+```
+
+And then, include it this way:
+
+```yml {3}
+subdomain.domain.name {
+  import safe
+  import common
+
+  handle @allowed {
+    reverse_proxy http://lighttpd:80
+  }
+}
+```
+
+---
+## Ressources
+
+[Caddy Documentation: snippets](https://caddyserver.com/docs/caddyfile/concepts#snippets)
+[Caddy Documentation: headers syntax](https://caddyserver.com/docs/caddyfile/directives/header#syntax)
