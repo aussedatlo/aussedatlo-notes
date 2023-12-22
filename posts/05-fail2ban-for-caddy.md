@@ -32,6 +32,8 @@ From the previous post [[02-caddy-hardening]]
 ---
 ## Log Caddy errors
 
+This one is complicated:
+
 ```
 {  
        debug  
