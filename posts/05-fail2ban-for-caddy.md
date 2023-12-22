@@ -15,8 +15,6 @@ From the previous post [[02-caddy-hardening]]
 ---
 ## Return an error with Caddy
 
-> complete here
-
 ```yml {6}
 (safe) {  
        # 192.168.0.0/24: local ip range    
