@@ -161,13 +161,13 @@
   },
   "active": "c84fd9bb941b8fbf",
   "lastOpenFiles": [
-    "posts/01-caddy-in-docker.md",
-    "posts/05-fail2ban-for-caddy.md",
     "posts/04-install-caddy-plugins.md",
     "posts/03-fail2ban-in-docker.md",
+    "posts/02-caddy-hardening.md",
+    "posts/01-caddy-in-docker.md",
+    "posts/05-fail2ban-for-caddy.md",
     "projects.md",
     "index.md",
-    "posts/02-caddy-hardening.md",
     "experiences.md",
     "projects"
   ]

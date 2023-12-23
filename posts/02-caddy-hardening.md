@@ -5,6 +5,7 @@ tags:
   - docker
   - reverse-proxy
   - security
+date: 2023-12-18
 ---
 # 🔒 How to secure Caddy instance
 

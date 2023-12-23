@@ -4,6 +4,7 @@ tags:
   - docker
   - fail2ban
   - security
+date: 2023-12-21
 ---
 # 📛 What is Fail2Ban
 

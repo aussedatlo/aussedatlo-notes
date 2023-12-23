@@ -5,6 +5,7 @@ tags:
   - fail2ban
   - security
   - docker
+date: 2023-12-23
 ---
 # 🛡️ How to configure Fail2Ban for Caddy
 

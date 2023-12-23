@@ -4,6 +4,7 @@ tags:
   - caddy
   - plugins
   - docker
+date: 2023-12-22
 ---
 # 📦 How to Install Caddy Plugins
 

@@ -4,6 +4,7 @@ tags:
   - caddy
   - docker
   - reverse-proxy
+date: 2023-12-16
 ---
 # 🛒 What is Caddy
 
