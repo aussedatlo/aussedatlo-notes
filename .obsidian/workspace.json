@@ -149,9 +149,9 @@
   "active": "b74255810f689e91",
   "lastOpenFiles": [
     "posts/04-install-caddy-plugins.md",
-    "posts/03-fail2ban-in-docker.md",
-    "posts/02-caddy-hardening.md",
     "posts/05-fail2ban-for-caddy.md",
+    "posts/02-caddy-hardening.md",
+    "posts/03-fail2ban-in-docker.md",
     "Untitled.md",
     "posts/01-caddy-in-docker.md",
     "projects.md",

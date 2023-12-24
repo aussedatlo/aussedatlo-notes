@@ -15,24 +15,27 @@ It can be dangerous because of the numerous bad actors that continuously scan th
 
 In this post, I will show you how to step-up the security of your **Caddy** server.
 
->[!hint]- How to install Caddy ?
-> Check out how to run **Caddy** in Docker: [[01-caddy-in-docker]]
+---
+## Prerequisite
+
+To proceed with this guide, ensure you have:
+- A **Caddy** instance (check out [[01-caddy-in-docker]])
 
 ---
 ## Restrict to Home Network
 
 If you have some applications that are served with **Caddy** but you don't want them to be available outside of your home network, it's possible to configure **Caddy** to reject automatically all the non desired HTTPS requests that doesn't match your local IP range.
 
-You can create a snippet on your `Caddyfile`:
+You can create a snippet on top of your `Caddyfile`:
 
 ```yml
 (safe) {
-  # 192.168.0.0/24: local ip range
-  @allowed remote_ip 192.168.0.0/24
+    # replace 192.168.0.0/24 with your local IP range
+    @allowed remote_ip 192.168.0.0/24
 
-  handle {
-    abort
-  }
+    handle {
+        abort
+    }
 }
 ```
 
@@ -40,16 +43,16 @@ Then, import it on a domain declaration:
 
 ```yml {2}
 subdomain.domain.name {
-  import safe
+    import safe
 
-  handle @allowed {
-    reverse_proxy http://lighttpd:80
-  }
+    handle @allowed {
+        reverse_proxy http://lighttpd:80
+    }
 }
 ```
 
 > [!hint] Hint
-> In this example, all the traffic from an ip address different from the range `192.168.0.0` will be automatically aborted 🤯
+> In this example, all the traffic from an IP address different from the range `192.168.0.0/24` and requesting for `subdomain.domain.name` will be automatically aborted 🤯
 
 ---
 ## Remove the `Server` Response Header
@@ -72,12 +75,46 @@ And then, include it this way:
 
 ```yml {3}
 subdomain.domain.name {
-  import safe
-  import common
+    import safe
+    import common
 
-  handle @allowed {
-    reverse_proxy http://lighttpd:80
-  }
+    handle @allowed {
+        reverse_proxy http://lighttpd:80
+    }
+}
+```
+
+---
+## Final Configuration
+
+Since the `common` snippet should be imported for each domain/subdomain, you can import it on the `safe` snippet directly.
+
+The final configuration look like this:
+
+```yml
+(common) {
+    header /* {
+        -Server
+    }
+}
+
+(safe) {
+    import common
+    
+    # 192.168.0.0/24: local ip range
+    @allowed remote_ip 192.168.0.0/24
+
+    handle {
+        abort
+    }
+}
+
+subdomain.domain.name {
+    import safe
+
+    handle @allowed {
+        reverse_proxy http://lighttpd:80
+    }
 }
 ```
 

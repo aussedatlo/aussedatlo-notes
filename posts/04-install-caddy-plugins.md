@@ -11,6 +11,12 @@ date: 2023-12-22
 **Caddy** is designed with a user-friendly architecture that facilitates the creation of plugins. The community actively contributes numerous plugins, which can be explored in the comprehensive list available [here](https://caddyserver.com/docs/modules/). These plugins enhance functionality, allowing users to, for instance, format logs and execute shell commands.
 
 ---
+## Prerequisite
+
+To proceed with this guide, ensure you have:
+- A **Caddy** instance (check out [[01-caddy-in-docker]])
+
+---
 ## Add a Plugin with CLI
 
 **Caddy** is equipped with a command-line interface (**CLI**) that enables the seamless integration of plugins. To add a plugin, execute the following command:
