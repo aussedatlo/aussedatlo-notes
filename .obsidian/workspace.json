@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/06-host-quartz-caddy.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "mode": "source",
                 "source": false
               }
@@ -161,10 +161,10 @@
   },
   "active": "f95f1be70b68f4d2",
   "lastOpenFiles": [
-    "posts/06-host-quartz-caddy.md",
-    "posts/07-auto-deploy-quartz.md",
-    "index.md",
+    "posts/06-caddy-for-quartz.md",
+    "posts/07-quartz-auto-deploy.md",
     "posts/05-fail2ban-for-caddy.md",
+    "index.md",
     "posts/04-install-caddy-plugins.md",
     "posts/02-caddy-hardening.md",
     "posts/03-fail2ban-in-docker.md",

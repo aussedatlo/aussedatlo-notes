@@ -1,5 +1,5 @@
 ---
-title: Host Quartz Blog with Caddy
+title: Caddy for Quartz
 tags:
   - caddy
   - quartz

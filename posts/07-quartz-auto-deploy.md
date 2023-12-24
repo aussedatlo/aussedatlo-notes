@@ -1,5 +1,5 @@
 ---
-title: Auto Deploy Quartz Website
+title: Quartz Auto Deploy
 tags:
   - caddy
   - webhook
@@ -17,7 +17,7 @@ tags:
 ---
 ## Prerequisite
 To proceed with this guide, ensure you have:
-- A **Caddy** instance (check out [[01-caddy-in-docker]]) configured for **Quartz** (follow the post [[06-host-quartz-caddy]])
+- A **Caddy** instance (check out [[01-caddy-in-docker]]) configured for **Quartz** (follow the post [[06-caddy-for-quartz]])
 
 ---
 ## Create Update Script
