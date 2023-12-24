@@ -5,6 +5,8 @@ Welcome to my website, where I note everything related to my self hosted journey
 
 ## Posts
 
+- [[07-auto-deploy-quartz]]: Auto Deploy Quartz Website 🚀.
+- [[06-host-quartz-caddy]]: How to Host Quartz Blog using Caddy ✨.
 - [[05-fail2ban-for-caddy]]: Configure Fail2Ban to block undesired traffic from Caddy 🛡️.
 - [[04-install-caddy-plugins]]: Install Caddy plugins 📦.
 - [[03-fail2ban-in-docker]]: Log watcher, firewall manager, ban them all 📛!
