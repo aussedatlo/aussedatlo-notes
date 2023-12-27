@@ -42,7 +42,7 @@ You can create a snippet on top of your `Caddyfile`:
 Then, import it on a domain declaration:
 
 ```yml {2}
-subdomain.domain.name {
+sub.domain.name {
     import safe
 
     handle @allowed {
@@ -51,8 +51,12 @@ subdomain.domain.name {
 }
 ```
 
-> [!hint] Hint
-> In this example, all the traffic from an IP address different from the range `192.168.0.0/24` and requesting for `subdomain.domain.name` will be automatically aborted 🤯
+![[02-caddy-restrict-local.png]]
+
+In this example, all the traffic from an IP address different from the local network (for example `192.168.0.0/24`) and requesting for `sub.domain.name` will be automatically aborted 🤯
+
+> [!note] Note
+> To handle TLS certificates, **Caddy** need to be accessible from the internet. In this case, **Caddy** handle `sub.domain.name` certificate, even if this subdomain is restricted to local network.
 
 ---
 ## Remove the `Server` Response Header
@@ -74,7 +78,7 @@ You can add a `common` snippet on top of your `Caddyfile`:
 And then, include it this way:
 
 ```yml {3}
-subdomain.domain.name {
+sub.domain.name {
     import safe
     import common
 
@@ -109,7 +113,7 @@ The final configuration look like this:
     }
 }
 
-subdomain.domain.name {
+sub.domain.name {
     import safe
 
     handle @allowed {

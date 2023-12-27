@@ -183,12 +183,9 @@ To get the IP address of the host `<host-ip>` from a Docker container, run:
 docker exec -it caddy /sbin/ip route | awk '/default/ { print $3 }' | head -n1
 ```
 
-This IP will represent the IP address of the host from the docker container, for example `172.23.0.1`, It's like `localhost` or `127.0.0.1` from your host but from your container.
+This IP will represent the IP address of the host from the docker container, for example `172.23.0.1`, It's like `localhost` or `127.0.0.1` of your host but from your container.
 
->[!note] Note
->To be able to access your web server from Caddy container, you will need to add the port mapping to the `docker-compose.yml` of your service.
-
-If you can access it from `localhost:8080`, you can access it from the **Caddy** container using `<host-ip>:8080`, So re-add the port mapping as follow:
+If you can access the webserver it from `localhost:8080`, you can access it from the **Caddy** container using `<host-ip>:8080`, So re-add the port mapping as follow:
 
 ```yml {7-8}
 lighttpd:
@@ -210,7 +207,7 @@ sub.domain.name {
 }
 ```
 
-You have now, as previously, a redirection from `https://sub.domain.name` to `lighttpd:80` service, passing by `<host-ip>`.
+You have now, as previously, a redirection from `https://sub.domain.name` to `lighttpd:80` service, passing by `<host-ip>` and not `caddy` external network.
 
 ![[01-caddy-reverse-example-2.png]]
 
