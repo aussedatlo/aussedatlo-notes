@@ -172,9 +172,10 @@
   },
   "active": "b74255810f689e91",
   "lastOpenFiles": [
-    "posts/01-caddy-in-docker.md",
     "posts/06-caddy-for-quartz.md",
     "posts/07-quartz-auto-deploy.md",
+    "images/07-quartz-deploy.png",
+    "posts/01-caddy-in-docker.md",
     "posts/03-fail2ban-in-docker.md",
     "posts/04-install-caddy-plugins.md",
     "index.md",

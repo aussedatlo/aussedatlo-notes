@@ -145,7 +145,7 @@ docker exec -it caddy caddy hash-password
 
 This command will output a string in the format `$2a$14$S57sqa8RAHPBTRYvy.GqYOQOoPBeip.zZ9W.yvmQKck61thG72bKy` (hash generated from `1234` password).
 
-Complete the **Caddy** config file with `basicauth` directive, specifying an `user` and `hash`:
+Complete the **Caddy** config file with `basicauth` directive, specifying a `user` and a `hash`:
 
 ```yml {4-6}
 domain.name {
@@ -182,6 +182,8 @@ Go to Github in `Settings` => `Webhooks` => `Add webhook`.
 On the `Payload URL`, set the URL `https://user:1234@domain.name/update`.
 
 When you will push your code on Github, this webhook will be triggered and will automatically update your server repository.
+
+![[07-quartz-deploy.png]]
 
 ---
 ## Improve Security
