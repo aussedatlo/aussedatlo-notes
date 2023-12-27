@@ -21,7 +21,6 @@ Personally, I love **Quartz** for its seamless integration with [Obsidian](https
 To proceed with this guide, ensure you have:
 - A static website generated with **Quartz** (read the [Quartz documentation](https://quartz.jzhao.xyz/))
 - A **Caddy** instance (check out [[01-caddy-in-docker]])
-- Plugin `caddy-exec` to auto deploy (look [[04-install-caddy-plugins]] to know how to add the plugin).
 
 ---
 ## Host Quartz with Caddy
