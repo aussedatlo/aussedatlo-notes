@@ -62,7 +62,9 @@ networks:
       name: caddy
 ```
 
-Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
+> [!note] TLS Certificates
+>Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
+
 The configuration will be in the `Caddyfile` config file.
 
 To initiate **Caddy**, execute the following command:
@@ -113,34 +115,9 @@ services:
 ### Using Caddy as a reverse proxy
 
 **Caddy** can also be used as a reverse proxy.
+#### Redirect using Docker host name
 
-Given that **Caddy** is encapsulated within a Docker container with only ports `80` and `443` accessible,
-it is essential to obtain the IP address of the host machine in order to ensure proper redirection.
-
-#### Using Host IP address
-
-To get the IP address of the host, run:
-
-```bash
-docker exec -it caddy /sbin/ip route | awk '/default/ { print $3 }' | head -n1
-```
-
-In the **Caddy** config file, add the configuration below:
-
-```bash
-subdomain.domain.name {
-  reverse_proxy http://<host-ip>:8080
-}
-```
-
-This **Caddy** configuration block sets up a reverse proxy for the domain `subdomain.domain.name`,
-directing incoming HTTP traffic to a backend server running on `http://<host-ip>:8080`.
-
-This is a common setup for routing requests from a subdomain to a specific service or application running on a backend server.
-
-#### Using Docker host name
-
-To direct your HTTP traffic to another Docker container,
+To redirect your HTTP traffic to another Docker container,
 the most effective approach is to route it through the Docker host name of the target container.
 
 By default, containers are isolated from each other,
@@ -181,20 +158,61 @@ networks:
 
 You can observe two modifications:
 
-- The port mapping is no longer defined
-- The **caddy** network is defined as default and external
-
+- The port mapping is no longer needed
+- The **caddy** network is defined as external
 
 Now, you can create the **Caddy** reverse proxy configuration:
 
 ```bash
-subdomain.domain.name {
+sub.domain.name {
   reverse_proxy http://lighttpd:80
 }
 ```
 
-And voila, the **lighttpd** server will now be reachable using `https://subdomain.domain.name`
-and not `http://<host-ip>:8080`.
+And voila, the **lighttpd** server will now be reachable using `https://subdomain.domain.name`.
+
+![[01-caddy-reverse-example.png]]
+
+#### Redirect using Host IP address
+
+If it's impossible to use the `caddy` external network, you can also point to the host IP.
+
+To get the IP address of the host `<host-ip>` from a Docker container, run:
+
+```bash
+docker exec -it caddy /sbin/ip route | awk '/default/ { print $3 }' | head -n1
+```
+
+This IP will represent the IP address of the host from the docker container, for example `172.23.0.1`, It's like `localhost` or `127.0.0.1` from your host but from your container.
+
+>[!note] Note
+>To be able to access your web server from Caddy container, you will need to add the port mapping to the `docker-compose.yml` of your service.
+
+If you can access it from `localhost:8080`, you can access it from the **Caddy** container using `<host-ip>:8080`, So re-add the port mapping as follow:
+
+```yml {7-8}
+lighttpd:
+  container_name: lighttpd
+  image: sebp/lighttpd:latest
+  volumes:
+    - <home-directory>:/var/www/localhost/htdocs
+    - <config-directory>:/etc/lighttpd
+  ports:
+    - "8080:80"
+  tty: true
+```
+
+Finally, add the configuration in the **Caddy** config file:
+
+```bash
+sub.domain.name {
+  reverse_proxy http://<host-ip>:8080
+}
+```
+
+You have now, as previously, a redirection from `https://sub.domain.name` to `lighttpd:80` service, passing by `<host-ip>`.
+
+![[01-caddy-reverse-example-2.png]]
 
 ---
 ## Ressources
