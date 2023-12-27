@@ -5,7 +5,6 @@ Welcome to my website, where I note everything related to my self hosted journey
 
 ## Posts
 
-- [[08-what-is-reverse-proxy]]: What is a Reverse Proxy 🔄.
 - [[07-quartz-auto-deploy]]: Auto Deploy Quartz Website 🚀.
 - [[06-caddy-for-quartz]]: How to Host Quartz Blog using Caddy ✨.
 - [[05-fail2ban-for-caddy]]: Configure Fail2Ban to block undesired traffic from Caddy 🛡️.

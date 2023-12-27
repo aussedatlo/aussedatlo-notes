@@ -72,7 +72,7 @@ docker logs -f caddy
 
 In this example, I will show how to protect your **SSH** service.
 
-> [!hint]- Predefined filters
+> [!note] Predefined filters
 > **fail2ban** docker image is shipped with already predefined filters, that can be used to filter logs and detect malicious behavior of common softwares like `sshd`. They are located in the `/etc/fail2ban/filter.d` folder.
 > 
 > You can check it using the command:
@@ -91,18 +91,25 @@ Since **fail2ban** watch logs to detect intrusive behavior, you will need to giv
 
 In the `docker-compose.yml` file, add the line:
 
-```yml {7}
+```yml {13}
 ...
+version: "3.9"
+
 services:
   fail2ban:
-    ...
+    image: crazymax/fail2ban:latest
+    container_name: fail2ban
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     volumes:
       - "./data:/data"
       - "/var/log/auth.log:/var/log/auth.log:ro"
-    ...
+    restart: unless-stopped
 ```
 
-Now you can restart your **fail2ban** service with:
+Now, you can restart your **fail2ban** service with:
 
 ```bash
 docker-compose restart

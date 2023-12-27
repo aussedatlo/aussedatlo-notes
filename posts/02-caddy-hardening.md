@@ -53,10 +53,10 @@ sub.domain.name {
 
 ![[02-caddy-restrict-local.png]]
 
-In this example, all the traffic from an IP address different from the local network (for example `192.168.0.0/24`) and requesting for `sub.domain.name` will be automatically aborted 🤯
+In this example, all the traffic from an IP address different from the local network `192.168.0.0/24` and requesting for `sub.domain.name` will be automatically aborted 🤯.
 
 > [!note] Note
-> To handle TLS certificates, **Caddy** need to be accessible from the internet. In this case, **Caddy** handle `sub.domain.name` certificate, even if this subdomain is restricted to local network.
+> To handle TLS certificates, **Caddy** need to be accessible from the internet. However, it's important to clarify that internet accessibility for managing certificates does not imply that the entire service should be open to the web !
 
 ---
 ## Remove the `Server` Response Header
@@ -91,9 +91,8 @@ sub.domain.name {
 ---
 ## Final Configuration
 
-Since the `common` snippet should be imported for each domain/subdomain, you can import it on the `safe` snippet directly.
-
-The final configuration look like this:
+> [!note] Note
+> You can combine `safe` and `common` snippet to reduce imports.
 
 ```yml
 (common) {
