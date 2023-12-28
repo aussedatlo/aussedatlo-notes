@@ -10,8 +10,6 @@ date: 2023-12-23
 
 # 🛡️ How to configure Fail2Ban for Caddy
 
-> [!warning] Work in progress
-
 ## Prerequisite
 
 To proceed with this guide, ensure you have:
