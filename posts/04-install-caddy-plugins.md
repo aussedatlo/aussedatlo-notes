@@ -6,17 +6,21 @@ tags:
   - docker
 date: 2023-12-22
 ---
+
 # 📦 How to Install Caddy Plugins
 
 **Caddy** is designed with a user-friendly architecture that facilitates the creation of plugins. The community actively contributes numerous plugins, which can be explored in the comprehensive list available [here](https://caddyserver.com/docs/modules/). These plugins enhance functionality, allowing users to, for instance, format logs and execute shell commands.
 
 ---
+
 ## Prerequisite
 
 To proceed with this guide, ensure you have:
+
 - A **Caddy** instance (check out [[01-caddy-in-docker]])
 
 ---
+
 ## Add a Plugin with CLI
 
 **Caddy** is equipped with a command-line interface (**CLI**) that enables the seamless integration of plugins. To add a plugin, execute the following command:
@@ -30,6 +34,7 @@ xcaddy build \
 > **transform-encoder** is a plugin that provides the capability to format entry logs with a distinct and customizable structure, useful for tools like **fail2ban** that will parse logs.
 
 ---
+
 ## Add a Plugin for Docker
 
 To incorporate plugins into a Docker **Caddy** instance, the most effective approach is to rebuild the **Caddy** image by including the desired plugin.
@@ -52,7 +57,7 @@ From my previous blog post [[01-caddy-in-docker]], you can edit the `docker-comp
 
 ```yml {5-8}
 version: "3.9"
-  
+
 services:
  caddy:
    image: caddy-custom:1.0.0
@@ -65,11 +70,11 @@ services:
      - "80:80"
      - "443:443"
      - "443:443/udp"
-   volumes:  
+   volumes:
      - ./Caddyfile:/etc/caddy/Caddyfile
      - ./data:/data
-     - ./config:/config
-  
+	     - ./config:/config
+
 networks:
  default:
    external:
@@ -91,5 +96,7 @@ docker-compose rebuild
 ```
 
 ---
+
 ## Ressources
+
 - [Caddy's Modules](https://caddyserver.com/docs/modules/)

@@ -6,11 +6,13 @@ tags:
   - security
 date: 2023-12-21
 ---
+
 # 📛 What is Fail2Ban
 
 Fail2Ban is an open-source intrusion prevention framework that helps protect Linux servers from various types of attacks. It works by monitoring log files for patterns that may indicate malicious activity, such as repeated failed login attempts, and then takes action to block the source of the suspicious activity.
 
 ---
+
 ## Run Fail2Ban in Docker
 
 Create a folder `fail2ban` and navigate into it:
@@ -65,20 +67,22 @@ To monitor the logs, employ:
 
 ```bash
 docker logs -f caddy
-``````
+```
 
 ---
+
 ## Add a Jail
 
 In this example, I will show how to protect your **SSH** service.
 
 > [!note] Predefined filters
 > **fail2ban** docker image is shipped with already predefined filters, that can be used to filter logs and detect malicious behavior of common softwares like `sshd`. They are located in the `/etc/fail2ban/filter.d` folder.
-> 
+>
 > You can check it using the command:
+>
 > ```bash
 > docker exec -it fail2ban cat /etc/fail2ban/filter.d/sshd.conf
->```
+> ```
 
 Firstly, enable the `sshd` `jail` by creating a file in `data/jail.d/sshd.conf` with the following content:
 
@@ -92,7 +96,6 @@ Since **fail2ban** watch logs to detect intrusive behavior, you will need to giv
 In the `docker-compose.yml` file, add the line:
 
 ```yml {13}
-...
 version: "3.9"
 
 services:
@@ -116,6 +119,7 @@ docker-compose restart
 ```
 
 ---
+
 ## Monitoring
 
 You can check the status of **fail2ban** using the command:
@@ -123,9 +127,10 @@ You can check the status of **fail2ban** using the command:
 ```bash
 docker exec -it fail2ban fail2ban-client status
 ```
+
 ```txt
-Status  
-|- Number of jail:      1  
+Status
+|- Number of jail:      1
 `- Jail list:   sshd
 ```
 
@@ -134,18 +139,21 @@ You can also specify a `jail`:
 ```bash
 docker exec -it fail2ban fail2ban-client status sshd
 ```
+
 ```txt
-Status for the jail: sshd  
-|- Filter  
-|  |- Currently failed: 0  
-|  |- Total failed:     0  
-|  `- File list:        /var/log/auth.log  
-`- Actions  
-  |- Currently banned: 0  
-  |- Total banned:     0  
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- File list:        /var/log/auth.log
+`- Actions
+  |- Currently banned: 0
+  |- Total banned:     0
   `- Banned IP list:
 ```
 
 ---
+
 ## Ressources
+
 - [Docker image from crazy-max](https://github.com/crazy-max/docker-fail2ban/tree/master)

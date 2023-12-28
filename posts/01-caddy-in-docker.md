@@ -6,6 +6,7 @@ tags:
   - reverse-proxy
 date: 2023-12-16
 ---
+
 # 🛒 What is Caddy
 
 **Caddy v2**, a server-of-servers, is a Go application that is **fully open source**,
@@ -19,6 +20,7 @@ it will automatically handle all certificates using issuers like [ZeroSSL](https
 [Let's Encrypt](https://letsencrypt.org/) for example.
 
 ---
+
 ## Run Caddy with Docker
 
 **Caddy** is really easy to run with docker.
@@ -63,7 +65,7 @@ networks:
 ```
 
 > [!note] TLS Certificates
->Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
+> Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
 
 The configuration will be in the `Caddyfile` config file.
 
@@ -86,6 +88,7 @@ docker logs -f caddy
 ```
 
 ---
+
 ## Configure Caddy
 
 ### Using Caddy as a server
@@ -94,10 +97,10 @@ docker logs -f caddy
 
 In the **Caddy** config file, add the configuration below:
 
-```bash
+```text
 domain.name {
-  root * /var/www/html/website
-  file_server
+	root * /var/www/html/website
+	file_server
 }
 ```
 
@@ -115,6 +118,7 @@ services:
 ### Using Caddy as a reverse proxy
 
 **Caddy** can also be used as a reverse proxy.
+
 #### Redirect using Docker host name
 
 To redirect your HTTP traffic to another Docker container,
@@ -163,7 +167,7 @@ You can observe two modifications:
 
 Now, you can create the **Caddy** reverse proxy configuration:
 
-```bash
+```text
 sub.domain.name {
   reverse_proxy http://lighttpd:80
 }
@@ -201,7 +205,7 @@ lighttpd:
 
 Finally, add the configuration in the **Caddy** config file:
 
-```bash
+```text
 sub.domain.name {
   reverse_proxy http://<host-ip>:8080
 }
@@ -212,6 +216,7 @@ You have now, as previously, a redirection from `https://sub.domain.name` to `li
 ![[01-caddy-reverse-example-2.png]]
 
 ---
+
 ## Ressources
 
 - [Caddy Documentation](https://caddyserver.com/docs/)
