@@ -12,13 +12,18 @@ tags:
 
 > [!warning] Work in progress
 
-**Quartz**, **Obsidian** with the [Obsidian Git plugin](https://github.com/denolehov/obsidian-git) and [GitHub webhooks](https://docs.github.com/en/webhooks), deployment becomes instantaneous and entirely automated.
-
 ---
-## Prerequisite
-To proceed with this guide, ensure you have:
-- A **Caddy** instance (check out [[01-caddy-in-docker]]) configured for **Quartz** (follow the post [[06-caddy-for-quartz]])
-- Your **Quartz** sources on [Github](https://github.com)
+## Intro
+
+If you've been keeping up with my earlier blog entries, such as [[01-caddy-in-docker]] and [[06-caddy-for-quartz]], you now have on your server a **Caddy** Docker instance successfully serving a static site powered by **Quartz**.
+
+Given that I edit my notes using multiple devices, [Obsidian](https://obsidian.md) and  [Obsidian Git plugin](https://github.com/denolehov/obsidian-git), I've been searching for a solution for automatically deploying my **Quartz** changes directly to my server.
+
+![[07-intro.png]]
+
+One straightforward approach is to update the Git repository directly, which is served by Caddy, using the `git pull` command, followed by rebuilding the static files. However, this method requires continuous access to the server and involves a relatively manual process.
+
+In this guide, I will demonstrate how to update your server repository by leveraging a combination of [Github](https://github.com) Webhooks and **Caddy** configuration.
 
 ---
 ## Create Update Script
@@ -39,9 +44,9 @@ This script will update the git repository then rebuild the **Quartz** static fi
 
 ### Caddy Exec Plugin
 
-To be able to execute shell script in background, **Caddy** need the `caddy-exec` plugin.
+`caddy-exec` is a **Caddy** plugin designed for executing background shell commands. Its utility becomes evident when employing it to directly run our earlier update script within the **Caddy** environment.
 
-You can use the `Dockerfile` from [[04-install-caddy-plugins]]:
+To add the plugin to your **Caddy** docker instance, you can use the `Dockerfile` from [[04-install-caddy-plugins]]:
 
 ```dockerfile {2-3}
 FROM caddy:builder AS builder
@@ -56,7 +61,7 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 
 The `update-quartz` also have dependencies that needs to be installed:
 
-```dockerfile {6}
+```dockerfile {7}
 FROM caddy:builder AS builder  
 RUN xcaddy build \
        --with github.com/abiosoft/caddy-exec  
@@ -70,7 +75,7 @@ RUN apk add --update nodejs npm git
 
 To be able to execute the `update-quartz` command, **Caddy** need the script to be in the `PATH` variable. Edit the `Dockerfile` as follow:
 
-```dockerfile {7}
+```dockerfile {8}
 FROM caddy:builder AS builder  
 RUN xcaddy build \
        --with github.com/abiosoft/caddy-exec
@@ -107,11 +112,10 @@ networks:
       name: caddy
 ```
 
-
 ---
 ## Create Caddy /update Endpoint
 
-Next, we will create an `/update` endpoint that will be used by a webhook to trigger the `update` script.
+Next, let's establish an `/update` endpoint, which will serve as the trigger point for initiating the update of the server's Git repository through Caddy.
 
 From the **Caddy** config of [[06-caddy-for-quartz]], add the configuration below:
 
@@ -137,7 +141,11 @@ domain.name {
 }
 ```
 
-This endpoint is currently accessible by all the internet. To create a `basicauth`, generate a password hash using the command:
+With this configuration, the update can be triggered manually by calling the `/update` endpoint on our server.
+
+![[07-endpoint.png]]
+
+This endpoint is currently accessible by all the internet. To create a `basicauth` authentication protection, generate a password hash using the command:
 
 ```bash
 docker exec -it caddy caddy hash-password
@@ -178,16 +186,25 @@ With this configuration, the endpoint `/route` will be protected with credential
 ---
 ## Setup Github Webhook
 
-Go to Github in `Settings` => `Webhooks` => `Add webhook`.
-On the `Payload URL`, set the URL `https://user:1234@domain.name/update`.
+Go to [Github](https://github.com) in `Settings` => `Webhooks` => `Add webhook`.
+For the `Payload URL` parameter, set the URL `https://user:1234@domain.name/update`.
 
-When you will push your code on Github, this webhook will be triggered and will automatically update your server repository.
+![[07-github-screenshot.png]]
 
-![[07-quartz-deploy.png]]
+By default, the webhook will be triggered on push event. This means when you will push your **Quartz** modifications on [Github](https://github.com). This implies that when you push your modifications to **Quartz** on  [Github](https://github.com), the webhook will autonomously activate the `/update` endpoint on your **Caddy** server. Consequently, it will update and rebuild the **Quartz** static files, which are also served by your **Caddy** instance 🚀.
+
+![[07-webhook.png]]
 
 ---
 ## Improve Security
 
-[[05-fail2ban-for-caddy]]
+To safeguard your Caddy endpoint `/update` from potential brute force attacks, consider implementing custom fail2ban filters as outlined in the blog post [[05-fail2ban-for-caddy]].
 
+---
 ## Ressources
+
+- Caddy Plugin [caddy-exec](https://github.com/abiosoft/caddy-exec)
+- Caddy Documentation
+	- [basicauth](https://caddyserver.com/docs/caddyfile/directives/basicauth)directive
+	- [route](https://caddyserver.com/docs/caddyfile/directives/route#route) directive
+- Github [Webhooks](https://docs.github.com/en/webhooks)
