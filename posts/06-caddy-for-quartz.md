@@ -71,20 +71,20 @@ domain.name {
 
 To appropriately capture errors, employ a `handle_errors` and `rewrite` directive:
 
-```yml {6-13}
+```text {6-13}
 domain.name {
-root * /path/to/quartz/public
-try_files {path} {path.html}
-file_server
+	root * /path/to/quartz/public
+	try_files {path} {path.html}
+	file_server
 
-handle_errors {
-@404-410 expression `{err.status_code} in [404, 410]`
-handle @404-410 {
-root * /path/to/quartz/public
-rewrite * {err.status_code}.html
-file_server
-}
-}
+	handle_errors {
+		@404-410 expression `{err.status_code} in [404, 410]`
+		handle @404-410 {
+			root * /path/to/quartz/public
+			rewrite * {err.status_code}.html
+			file_server
+		}
+	}
 }
 ```
 

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/01-caddy-in-docker.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "mode": "source",
                 "source": false
               }
@@ -72,7 +72,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "handle_errors and rewrite directive",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -89,7 +89,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -109,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/01-caddy-in-docker.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/01-caddy-in-docker.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/01-caddy-in-docker.md"
+                "file": "posts/06-caddy-for-quartz.md"
               }
             }
           }
@@ -173,10 +174,16 @@
   },
   "active": "b74255810f689e91",
   "lastOpenFiles": [
+    "posts/01-caddy-in-docker.md",
+    "drawings/07-endpoint.excalidraw",
     "images/01-caddy-reverse-example-2.png",
     "images/01-caddy-reverse-example.png",
-    "images/07-endpoint.excalidraw",
-    "posts/01-caddy-in-docker.md",
+    "images/07-endpoint.png",
+    "images/07-github-screenshot.png",
+    "images/02-caddy-restrict-local.png",
+    "drawings/07-intro.excalidraw",
+    "drawings/07-webhook.excalidraw",
+    "drawings",
     "posts/07-quartz-auto-deploy.md",
     "posts/06-caddy-for-quartz.md",
     "posts/05-fail2ban-for-caddy.md",
@@ -185,18 +192,13 @@
     "posts/02-caddy-hardening.md",
     "images/07-quartz-deploy.png",
     "images/07-webhook.png",
-    "images/07-webhook.excalidraw",
-    "images/07-endpoint.png",
     "images/07-intro.png",
     "images/Untitled-2023-12-28-1130.excalidraw.crswap",
-    "images/Untitled-2023-12-28-1130.excalidraw",
-    "images/07-github-screenshot.png",
     "index.md",
     "posts/08-what-is-reverse-proxy.md",
     "images/reverse-proxy-schema.svg",
     "images/01-caddy-reverse-example.svg",
     "images/02-caddy-restrict-local.png.crdownload",
-    "images/02-caddy-restrict-local.png",
     "images/01-caddy-reverse-example.png.crdownload",
     "images/Unconfirmed 925426.crdownload",
     "conflict-files-obsidian-git.md",
