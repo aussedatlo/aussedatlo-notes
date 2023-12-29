@@ -155,9 +155,17 @@ This endpoint is currently accessible by all the internet. To create a `basicaut
 docker exec -it caddy caddy hash-password
 ```
 
-This command will output a string in the format `$2a$14$S57sqa8RAHPBTRYvy.GqYOQOoPBeip.zZ9W.yvmQKck61thG72bKy` (hash generated from `1234` password).
+For the password `1234`, the output will look like:
 
-Complete the **Caddy** config file with `basicauth` directive, specifying a `user` and a `hash`:
+```txt
+Enter password:    
+Confirm password:    
+$2a$14$S9xXKUJUueIzZFFPFhrqQOkCJs.12XeyHSybjpXNBLCLQWli7wIva
+```
+
+This command will output a string in the `bcrypt` format by default. You can look at the **Caddy** [hash-password documentation](https://caddyserver.com/docs/command-line#caddy-hash-password) for more information.
+
+Complete the **Caddy** config file with `basicauth` directive, specifying the `hash-password` output and a `user` that will be used to authenticate:
 
 ```text {4-6}
 domain.name {
@@ -185,7 +193,7 @@ domain.name {
 }
 ```
 
-With this configuration, the endpoint `/route` will be protected with credentials `user`/`1234`.
+With this configuration, the endpoint `/update` will be protected with credentials `user`/`1234`.
 
 ---
 
@@ -196,7 +204,7 @@ For the `Payload URL` parameter, set the URL `https://user:1234@domain.name/upda
 
 ![[07-github-screenshot.png]]
 
-By default, the webhook will be triggered on push event. This means when you will push your **Quartz** modifications on [Github](https://github.com). This implies that when you push your modifications to **Quartz** on [Github](https://github.com), the webhook will autonomously activate the `/update` endpoint on your **Caddy** server. Consequently, it will update and rebuild the **Quartz** static files, which are also served by your **Caddy** instance 🚀.
+By default, webhooks will be triggered on push event. This implies that when you push your modifications to **Quartz** on [Github](https://github.com), the webhook will autonomously activate the `/update` endpoint on your **Caddy** server. Consequently, it will update and rebuild the **Quartz** static files, which are also served by your **Caddy** instance 🚀.
 
 ![[07-webhook.png]]
 
@@ -204,7 +212,7 @@ By default, the webhook will be triggered on push event. This means when you wil
 
 ## Improve Security
 
-To safeguard your Caddy endpoint `/update` from potential brute force attacks, consider implementing custom fail2ban filters as outlined in the blog post [[05-fail2ban-for-caddy]].
+To safeguard your **Caddy** endpoint `/update` from potential brute force attacks, consider implementing custom **Fail2Ban** filters as outlined in the blog post [[05-fail2ban-for-caddy]].
 
 ---
 
@@ -214,4 +222,5 @@ To safeguard your Caddy endpoint `/update` from potential brute force attacks, c
 - Caddy Documentation
   - [basicauth](https://caddyserver.com/docs/caddyfile/directives/basicauth) directive
   - [route](https://caddyserver.com/docs/caddyfile/directives/route#route) directive
+  - [hash-password](https://caddyserver.com/docs/command-line#caddy-hash-password) command
 - Github [Webhooks](https://docs.github.com/en/webhooks)
