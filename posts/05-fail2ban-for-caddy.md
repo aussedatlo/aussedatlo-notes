@@ -37,6 +37,8 @@ Referencing the earlier post [[02-caddy-hardening]], update the configuration to
 }
 ```
 
+![[05-ban-local-401.png]]
+
 ---
 
 ## Format Caddy Logs
@@ -140,6 +142,12 @@ You can now restart **Fail2Ban** using the command:
 ```bash
 docker-compose restart
 ```
+
+## Conclusion
+
+**Fail2Ban** is now set to automatically ban clients attempting to connect to a subdomain configured exclusively for the local network. After three unsuccessful attempts, the client will be restricted from making further requests to the **Caddy** server.
+
+![[05-ban-local-firewall.png]]
 
 ---
 

@@ -50,17 +50,18 @@ sub.domain.name {
 	import safe
 
 	handle @allowed {
-	reverse_proxy http://lighttpd:80
+	reverse_proxy http://app:80
 	}
 }
 ```
 
-![[02-caddy-restrict-local.png]]
+![[02-ban-local.png]]
 
 In this example, all the traffic from an IP address different from the local network `192.168.0.0/24` and requesting for `sub.domain.name` will be automatically aborted 🤯.
 
 > [!note] Note
-> To handle TLS certificates, **Caddy** need to be accessible from the internet. However, it's important to clarify that internet accessibility for managing certificates does not imply that the entire service should be open to the web !
+> To manage TLS certificates, **Caddy** needs internet accessibility. However, in the current configuration, Caddy is set up to handle TLS certificates for domains that are accessible solely within the local network and are not exposed to the wider internet.
+
 
 ---
 

@@ -179,7 +179,7 @@ And voila, the **lighttpd** server will now be reachable using `https://subdomai
 
 #### Redirect using Host IP address
 
-If it's impossible to use the `caddy` external network, you can also point to the host IP.
+If it's impossible to use the `caddy` external network, such as non-dockerized service scenario, you can also redirect to the host IP.
 
 To get the IP address of the host `<host-ip>` from a Docker container, run:
 
