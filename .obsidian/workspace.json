@@ -4,28 +4,54 @@
     "type": "split",
     "children": [
       {
-        "id": "fc7d0771e8e27495",
+        "id": "8aea1f16e71b4088",
         "type": "tabs",
         "children": [
           {
-            "id": "b982cb6ad3d60c66",
+            "id": "b74255810f689e91",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/05-fail2ban-for-caddy.md",
+                "file": "posts/07-quartz-auto-deploy.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "1aaf70299a7cdd61",
+            "id": "b666a0e9906151c2",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "images/01-caddy-reverse-example-2.png"
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f95f1be70b68f4d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/03-fail2ban-in-docker.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "37f04ca3c512ad7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "posts/04-install-caddy-plugins.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -96,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "images/01-caddy-reverse-example-2.png",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "images/01-caddy-reverse-example-2.png",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -136,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "images/01-caddy-reverse-example-2.png"
+                "file": "index.md"
               }
             }
           }
@@ -149,7 +175,6 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:Create new drawing": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -158,42 +183,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "1aaf70299a7cdd61",
+  "active": "b666a0e9906151c2",
   "lastOpenFiles": [
-    "images/01-caddy-reverse-example.png",
-    "posts/01-caddy-in-docker.md",
-    "drawings/05/05-ban-local-401.png",
-    "drawings/05/05-ban-local-firewall.md",
-    "drawings/05/05-ban-local-firewall.png",
-    "posts/05-fail2ban-for-caddy.md",
-    "drawings/05/05-ban-local-401.md",
-    "drawings/02/02-ban-local.md",
-    "drawings/05",
-    "posts/02-caddy-hardening.md",
-    "images/02-caddy-restrict-local.png",
-    "drawings/02/02-ban-local.png",
-    "drawings/07/07-webhook.excalidraw",
-    "drawings/07/07-endpoint.excalidraw",
-    "Excalidraw",
-    "drawings/02",
-    "drawings/07/07-webhook.png",
-    "images/07",
-    "drawings/07",
-    "drawings/Drawing 2023-12-29 11.01.53.excalidraw.png",
-    "projects.md",
-    "drawings/Drawing 2023-12-29 11.01.53.excalidraw.md",
     "posts/07-quartz-auto-deploy.md",
-    "experiences.md",
+    "posts/08-plausible-in-docker.md",
+    "index.md",
     "posts/06-caddy-for-quartz.md",
+    "images/07/07-github-screenshot.png",
+    "images/07",
+    "drawings/07/07-webhook.excalidraw",
+    "drawings/07/07-webhook.png",
+    "drawings/07/07-intro.png",
     "drawings/07/07-intro.excalidraw",
+    "drawings/07/07-endpoint.png",
+    "drawings/07/07-endpoint.excalidraw",
+    "drawings/02/02-ban-local.png",
+    "drawings/02/02-ban-local.md",
+    "drawings/05/05-ban-local-firewall.png",
+    "drawings/05/05-ban-local-firewall.md",
+    "drawings/05/05-ban-local-401.png",
+    "drawings/05/05-ban-local-401.md",
+    "drawings/02",
+    "drawings/07",
+    "drawings/05",
     "drawings",
+    "posts/01-caddy-in-docker.md",
+    "posts/02-caddy-hardening.md",
+    "images/07-quartz-deploy.png",
+    "posts/03-fail2ban-in-docker.md",
+    "posts/04-install-caddy-plugins.md",
     "posts/08-what-is-reverse-proxy.md",
     "images/reverse-proxy-schema.svg",
-    "images/reverse-proxy-schema-dark.svg",
-    "posts/04-install-caddy-plugins.md",
-    "index.md",
-    "images",
-    "posts/03-fail2ban-in-docker.md",
-    "Untitled.md"
+    "images/01-caddy-reverse-example.svg",
+    "images/02-caddy-restrict-local.png.crdownload",
+    "images/01-caddy-reverse-example.png.crdownload",
+    "conflict-files-obsidian-git.md",
+    "Untitled.md",
+    "posts/05-fail2ban-for-caddy.md",
+    "projects.md",
+    "experiences.md"
   ]
 }

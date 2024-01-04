@@ -10,8 +10,6 @@ tags:
 
 # 🚀 Auto Deploy Quartz Website
 
-> [!warning] Work in progress
-
 ---
 
 ## Intro
