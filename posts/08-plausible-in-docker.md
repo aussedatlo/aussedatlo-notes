@@ -8,7 +8,7 @@ tags:
 date: 2024-01-04
 ---
 
-# 📊 Plausible Analytics
+# 📊 What is Plausible Analytics
 
 > [!warning] Work in progress
 
