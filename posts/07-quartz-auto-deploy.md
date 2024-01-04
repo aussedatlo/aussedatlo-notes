@@ -156,8 +156,8 @@ docker exec -it caddy caddy hash-password
 For the password `1234`, the output will look like:
 
 ```txt
-Enter password:    
-Confirm password:    
+Enter password:  
+Confirm password:  
 $2a$14$S9xXKUJUueIzZFFPFhrqQOkCJs.12XeyHSybjpXNBLCLQWli7wIva
 ```
 

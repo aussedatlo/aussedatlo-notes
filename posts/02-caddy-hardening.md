@@ -62,7 +62,6 @@ In this example, all the traffic from an IP address different from the local net
 > [!note] Note
 > To manage TLS certificates, **Caddy** needs internet accessibility. However, in the current configuration, Caddy is set up to handle TLS certificates for domains that are accessible solely within the local network and are not exposed to the wider internet.
 
-
 ---
 
 ## Remove the `Server` Response Header
