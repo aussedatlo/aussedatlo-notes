@@ -14,6 +14,10 @@ date: 2024-01-04
 
 [Plausible](https://plausible.io) is a lightweight, privacy focusing, opensource, self hostable web analytics tool that is compliant with RGPD and require no cookie.
 
+![[08-intro.png]]
+
+A beautifully designed dashboard can provide a wealth of information, such as top traffic sources, popular pages, geographical distribution, device usage statistics...
+
 ---
 
 ## Run Plausible with Docker
@@ -150,9 +154,14 @@ plausible.domain.name {
 }
 ```
 
+> [!note] Note
+> The inclusion of `import common` as detailed in the [[02-caddy-hardening]] post eliminates the `Server = Caddy` header.
+
 ---
 
 ## Ressources
 
 - Plausible [website](https://plausible.io)
 - Plausible [github](https://github.com/plausible)
+- [[01-caddy-in-docker]]
+- [[02-caddy-hardening]]
