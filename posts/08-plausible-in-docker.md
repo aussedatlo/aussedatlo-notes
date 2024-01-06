@@ -93,7 +93,7 @@ plausible.domain.name {
 }
 ```
 
-Now, with the subdomain `plausible.domain.name` pointing on your server, you should be able to access **Plausible** with the URL [https://plausible.domain.name]()
+Now, with the subdomain `plausible.domain.name` pointing on your server, you should be able to access **Plausible** with the URL `https://plausible.domain.name`
 
 ---
 
