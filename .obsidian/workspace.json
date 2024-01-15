@@ -162,8 +162,9 @@
   },
   "active": "1aaf70299a7cdd61",
   "lastOpenFiles": [
-    "images/01-caddy-reverse-example-2.png",
+    "posts/Untitled.md",
     "posts/08-plausible-in-docker.md",
+    "images/01-caddy-reverse-example-2.png",
     "images/08/08-snippet.png",
     "images/08/08-intro.png",
     "images/08/08-dashboard.png",
@@ -181,7 +182,6 @@
     "drawings/05",
     "posts/02-caddy-hardening.md",
     "images/02-caddy-restrict-local.png",
-    "drawings/02/02-ban-local.png",
     "drawings/07/07-webhook.excalidraw",
     "drawings/07/07-endpoint.excalidraw",
     "Excalidraw",

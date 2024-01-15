@@ -129,28 +129,37 @@ Enjoy.
 
 To enhance the protection of your **Plausible** instance and referring to the post [[02-caddy-hardening]], you can allow only your local network for accessing the **Plausible** app.
 
-You can modifying the **Caddy** configuration like below:
+You can modify the **Caddy** configuration like below:
 
 ```txt
 plausible.domain.name {  
-    import common  
-    @allowed remote_ip 192.168.0.0/24  
+    import common
   
-    handle /api {  
-        reverse_proxy http://plausible_plausible_1:8042  
+    @allow_js {  
+        path /js/*  
     }  
   
-    handle /js {  
-        reverse_proxy http://plausible_plausible_1:8042  
-    }  
+    handle @allow_js {  
+        reverse_proxy http://plausible_plausible_1:8000
+    }
   
-    handle @allowed {  
-        reverse_proxy http://plausible_plausible_1:8042  
+    @allow_api {  
+        path /api/*  
     }  
   
-    handle {  
+    handle @allow_api {  
+        reverse_proxy http://plausible_plausible_1:8000
+    }
+
+	@not_local_network {  
+        not remote_ip 192.168.0.0/24
+    }  
+  
+    handle @not_local_network {  
         respond 401  
-    }  
+    }
+
+    reverse_proxy http://plausible_plausible_1:8000
 }
 ```
 
