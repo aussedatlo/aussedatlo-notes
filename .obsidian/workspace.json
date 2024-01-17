@@ -31,7 +31,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/09-caddy-wildcard-certificates.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "mode": "source",
                 "source": false
               }
@@ -128,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/09-caddy-wildcard-certificates.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/09-caddy-wildcard-certificates.md",
+                "file": "posts/06-caddy-for-quartz.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,7 +168,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/09-caddy-wildcard-certificates.md"
+                "file": "posts/06-caddy-for-quartz.md"
               }
             }
           }
@@ -192,8 +192,8 @@
   },
   "active": "67260254ed28ad9e",
   "lastOpenFiles": [
-    "posts/01-caddy-in-docker.md",
     "posts/09-caddy-wildcard-certificates.md",
+    "posts/01-caddy-in-docker.md",
     "index.md",
     "posts/08-plausible-in-docker.md",
     "experiences.md",
