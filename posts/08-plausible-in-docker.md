@@ -10,8 +10,6 @@ date: 2024-01-04
 
 # 📊 What is Plausible Analytics
 
-> [!warning] Work in progress
-
 [Plausible](https://plausible.io) is a lightweight, privacy focusing, opensource, self hostable web analytics tool that is compliant with RGPD and require no cookie.
 
 ![[08-intro.png]]
