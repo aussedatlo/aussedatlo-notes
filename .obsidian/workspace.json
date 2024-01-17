@@ -192,9 +192,9 @@
   },
   "active": "67260254ed28ad9e",
   "lastOpenFiles": [
-    "index.md",
-    "posts/09-caddy-wildcard-certificates.md",
     "posts/01-caddy-in-docker.md",
+    "posts/09-caddy-wildcard-certificates.md",
+    "index.md",
     "posts/08-plausible-in-docker.md",
     "experiences.md",
     "projects.md",

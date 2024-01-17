@@ -7,6 +7,7 @@ tags:
   - security
   - certificate
 date: 2024-01-17
+title: Caddy Wildcard Certificates
 ---
 
 > [!warning] Work in progress
