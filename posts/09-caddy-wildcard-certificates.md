@@ -19,8 +19,8 @@ In response to these challenges, wildcard certificates have emerged as a valuabl
 
 ## Prerequisite
 
-- A Caddy Instance
-- A domain name with `*` and `@` DNS configuration pointing on your machine
+- A Caddy Instance.
+- A domain name with  `*` and `@` type `A` DNS configuration pointing on your machine.
 
 ---
 ## What is a Wildcard Certificate
@@ -30,7 +30,7 @@ A wildcard certificate is a type of SSL/TLS certificate that is designed to secu
 For example, if you have a wildcard certificate for `*.domain.name` it would be valid for `sub1.domain.name`, `sub2.domain.name`, `sub3.domain.name` and so on. The asterisk acts as a placeholder for any subdomain.
 
 > [!warning] Disclosure
-> In the event of a compromised private key, the security of all your subdomains is at risk, given that they share the same certificate.
+> In the event of a compromise of the root certificate's private key, the security of all your subdomains is jeopardized, as they all share the same certificate.
 
 ---
 ## How to configure Caddy
@@ -42,16 +42,16 @@ Caddy can be configured to use Wildcard Certificates.
 
 ### Add DNS Module
 
-Since [Let's encrypt requires](https://letsencrypt.org/docs/challenge-types/) the `DNS-01 challenge` (and not the common `HTTP-01 challenge`) to obtain wildcard certificate, we will need to add a DNS Module that allow Caddy to resolve the challenge.
+Since [Let's encrypt requires](https://letsencrypt.org/docs/challenge-types/) the `DNS-01 challenge` to obtain wildcard certificate (and not the common `HTTP-01 challenge`) , we will need to add a DNS module that allow Caddy to resolve the challenge.
 
 A DNS Challenge asks to prove that we are in control of the domain DNS by putting a specific value in a `TXT` record under that domain name. If it finds a match, the issuer can proceed to issue a certificate.
 
 > [!note] Note
-> With this challenge, you don't need port `443` of `80` to be accessible from internet
+> With the `DNS-01 challenge` challenge, there is no requirement for ports `443` and `80` to be accessible from the internet.
 
-Caddy comes with a variety of DNS modules that are listed on [this github link](https://github.com/caddy-dns). In my example I will be using the [ionos dns module](https://github.com/caddy-dns/ionos). If your DNS provider is not in the module list, you can follow the [caddy tutorial](https://caddy.community/t/how-to-use-dns-provider-modules-in-caddy-2/8148) to see how to create a custom DNS module.
+A collection of DNS modules for Caddy is accessible through the GitHub [caddy-dns](https://github.com/caddy-dns). For my example I will be using [caddy-dns/ionos](https://github.com/caddy-dns/ionos). If your DNS provider is not in the list, you can refer to the [caddy tutorial](https://caddy.community/t/how-to-use-dns-provider-modules-in-caddy-2/8148) to see how to create a custom DNS module.
 
-Referring to the previous post [[04-install-caddy-plugins]], you can modify your `Dockerfile` like following:
+Referring to the previous post [[04-install-caddy-plugins]], you can modify your `Dockerfile` as follows:
 
 ```Dockerfile {6}
 FROM caddy:builder AS builder  
@@ -66,7 +66,7 @@ FROM caddy:latest
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 ```
 
-Now rebuild the Docker image with the command
+Now rebuild the Docker image with the command:
 
 ```bash
 docker-compose build
@@ -74,7 +74,7 @@ docker-compose build
 
 ### Add DNS Configuration
 
-To configure the new DNS Caddy Module, edit the `Caddyfile` as follow:
+To configure [caddy-dns/ionos](https://github.com/caddy-dns/ionos), add the `tls` directive in your `Caddyfile`:
 
 ```txt {2-4}
 *.domain.name, domain.name {  
@@ -86,22 +86,23 @@ To configure the new DNS Caddy Module, edit the `Caddyfile` as follow:
 
 This will configure Caddy to use `DNS-01 challenge` instead of `HTTP-01 challenge` and provide all the tools to edit your DNS settings from your DNS provider ionos.
 
-Create the `.env` file that will contains the `IONOS_API_TOKEN` value:
+Create the `.env` file that will contain the generated `IONOS_API_TOKEN` value from your DNS provider:
 
 ```env
 IONOS_API_TOKEN=<token-here>
 ```
 
-Add the env file to your `docker-compose.yml` file:
+> [!note] Note
+> Generate the `IONOS_API_TOKEN` via the [ionos developer control panel](https://developer.hosting.ionos.fr/?source=IonosControlPanel).
 
+Then, add the `.env` file to your `docker-compose.yml` file:
 
-
-```yml {19-20}
+```yml {20-21}
 version: "3.9"  
   
 services:  
  caddy:
-   # this is the custom docker image with the Caddy DNS module
+   # this is a custom docker image with the Caddy DNS module
    image: caddy-custom:<version>
    build:  
      context: .  
@@ -128,7 +129,7 @@ networks:
 
 You can now add all the subdomains that you want directly in your `Caddyfile`:
 
-```txt
+```txt {6-14}
 *.domain.name, domain.name {  
     tls {  
          dns ionos {env.IONOS_API_TOKEN}  
@@ -141,15 +142,61 @@ You can now add all the subdomains that you want directly in your `Caddyfile`:
 
     @sub1 host sub1.domain.name
     handle @sub1 {
-        respond "OK from sub.domain.name"
+        respond "OK from sub1.domain.name"
     }
 }
 ```
 
-Now, you have a subdomain  `sub1.domain.name` that share the same certificate as `domain.name`.
+Now, you have a subdomain  `sub1.domain.name` sharing the same certificate as the main domain `domain.name`.
 
 ---
 ## Hardening
 
+In the previous post [[02-caddy-hardening]], I discussed a method for restricting subdomains to the local network. With the new configuration using wildcard certificates, there is now a simpler and more efficient method available.
+
+Update your `Caddyfile` with the following changes:
+
+```txt {6-8} {20-24} {26-29}
+*.domain.name, domain.name {  
+    tls {  
+         dns ionos {env.IONOS_API_TOKEN}  
+    }
+
+	@outside {
+        not remote_ip 192.168.0.0/24 
+    }
+   
+    @main host domain.name
+    handle @main {
+        respond "OK from domain.name"
+    }
+
+    @sub1 host sub1.domain.name
+    handle @sub1 {
+        respond "OK from sub1.domain.name"
+    }
+
+	# All the subdomain below will be accessible from
+	# local network only
+    handle @outside {  
+        respond 401  
+    }
+
+    @sub2 host sub2.domain.name
+    handle @sub2 {
+        respond "OK from sub2.domain.name"
+    }
+}
+```
+
+With this configuration, the main domain `domain.name` and the subdomain `sub1.domain.name` will remain accessible from the internet, similar to the previous setup. However, the subdomain `sub2.domain.name`, declared after the `handle @outside`, will now only be available on the local network only.
+
+>[!note] Note
+>Any subdomain not configured before the `handle @outside` directive will result in a `401 Unauthorized` error. This includes cases where the subdomain is not explicitly mentioned in the configuration, such as `nonexistent.subdomain.name` for example.
+
 ---
 ## Ressources
+
+- [Caddy DNS modules](https://github.com/caddy-dns)
+- [Caddy DNS documentation](https://caddy.community/t/how-to-use-dns-provider-modules-in-caddy-2/8148)
+- [Let's encrypt challenge types](https://letsencrypt.org/docs/challenge-types/)
