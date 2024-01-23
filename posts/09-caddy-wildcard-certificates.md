@@ -59,7 +59,7 @@ A collection of DNS modules for Caddy is accessible through the GitHub [caddy-dn
 
 Referring to the previous post [[04-install-caddy-plugins]], you can modify your `Dockerfile` as follows:
 
-```Dockerfile {6}
+```docker {6}
 FROM caddy:builder AS builder  
   
 RUN xcaddy build \  

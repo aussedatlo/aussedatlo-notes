@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md",
+                "file": "posts/05-fail2ban-for-caddy.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md",
+                "file": "posts/05-fail2ban-for-caddy.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md",
+                "file": "posts/05-fail2ban-for-caddy.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "posts/04-install-caddy-plugins.md"
+                "file": "posts/05-fail2ban-for-caddy.md"
               }
             }
           }
@@ -147,12 +147,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b982cb6ad3d60c66",
+  "active": "7eacf7ad169aac43",
   "lastOpenFiles": [
-    "posts/09-caddy-wildcard-certificates.md",
     "posts/08-plausible-in-docker.md",
-    "posts/05-fail2ban-for-caddy.md",
+    "posts/09-caddy-wildcard-certificates.md",
     "posts/04-install-caddy-plugins.md",
+    "posts/05-fail2ban-for-caddy.md",
     "posts/03-fail2ban-in-docker.md",
     "posts/01-caddy-in-docker.md",
     "posts/06-caddy-for-quartz.md",

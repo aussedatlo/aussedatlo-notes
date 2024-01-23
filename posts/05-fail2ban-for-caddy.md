@@ -27,7 +27,7 @@ To proceed with this guide, ensure you have:
 
 Referencing the earlier post [[02-caddy-hardening]], update the configuration to permit only the local network, resulting in an unauthorized error (401) response instead of an abort.
 
-```text {6-8}
+```txt {6-8}
 (safe) {
     # 192.168.0.0/24: local ip range
     @allowed remote_ip 192.168.0.0/24
@@ -48,7 +48,7 @@ Referencing the earlier post [[02-caddy-hardening]], update the configuration to
 
 Add a global configuration on top of your `Caddyfile` that add a `log` directive:
 
-```text
+```txt
 {
     log access-log {
         include http.log.access.access-log
@@ -61,7 +61,7 @@ Configured in this manner, all `access-log` logs will be written to the `/data/a
 
 The **Caddy** logfile is rich in information. For improved readability and parsing, leverage the `transform` logging encoder available in the `access-formatted` plugin.
 
-```text {5-7}
+```txt {5-7}
 {
     log access-log {
         include http.log.access.access-log
