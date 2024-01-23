@@ -15,7 +15,7 @@ date: 2023-12-22
 
 ## Intro
 
-**Caddy** is designed with a user-friendly architecture that facilitates the creation of plugins. The community actively contributes numerous plugins, which can be explored in the comprehensive list available [here](https://caddyserver.com/docs/modules/). These plugins enhance functionality, allowing users to, for instance, format logs and execute shell commands.
+**Caddy** is designed with a user-friendly architecture that facilitates the creation of plugins. The community actively contributes to numerous plugins, which can be explored in the list available [here](https://caddyserver.com/docs/modules/). These plugins enhance functionality, allowing users to, for instance, format logs or execute shell commands.
 
 ## Prerequisite
 
@@ -32,7 +32,7 @@ xcaddy build \
     --with github.com/caddyserver/transform-encoder
 ```
 
-> [!hint]- transform-encoder
+> [!note] Note
 > **transform-encoder** is a plugin that provides the capability to format entry logs with a distinct and customizable structure, useful for tools like **fail2ban** that will parse logs.
 
 ---
@@ -75,7 +75,7 @@ services:
    volumes:
      - ./Caddyfile:/etc/caddy/Caddyfile
      - ./data:/data
-	     - ./config:/config
+	 - ./config:/config
 
 networks:
  default:
