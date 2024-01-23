@@ -88,13 +88,13 @@ With these modifications, the `docker-compose.yml` file will now employ the cust
 To restart the container with the new image, just run:
 
 ```bash
-docker-compose down && docker-compose up -d
+docker compose down && docker compose up -d
 ```
 
 If you want to rebuild the image, use:
 
 ```bash
-docker-compose rebuild
+docker compose rebuild
 ```
 
 ---

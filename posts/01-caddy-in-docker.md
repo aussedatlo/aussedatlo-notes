@@ -78,13 +78,13 @@ The configuration will be in the `Caddyfile` config file.
 To initiate **Caddy**, execute the following command:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 For halting **Caddy**, execute:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 To monitor the logs, employ:

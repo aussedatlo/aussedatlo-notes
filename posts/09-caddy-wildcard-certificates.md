@@ -75,7 +75,7 @@ COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 Now rebuild the Docker image with the command:
 
 ```bash
-docker-compose build
+docker compose build
 ```
 
 ### Add DNS Configuration

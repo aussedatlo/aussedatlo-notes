@@ -143,7 +143,7 @@ services:
 You can now restart **Fail2Ban** using the command:
 
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 ## Conclusion

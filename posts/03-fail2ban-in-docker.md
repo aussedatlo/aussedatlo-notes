@@ -59,13 +59,13 @@ services:
 To initiate **fail2ban**, execute the following command:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 For halting **fail2ban**, execute:
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 To monitor the logs, employ:
@@ -120,7 +120,7 @@ services:
 Now, you can restart your **fail2ban** service with:
 
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 ---

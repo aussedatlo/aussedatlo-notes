@@ -58,13 +58,13 @@ SECRET_KEY_BASE=<SECRET_KEY_BASE>
 You can now start your service using the command:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 You can check the log using:
 
 ```
-docker-compose logs -f
+docker compose logs -f
 ```
 
 #### Reverse Proxy
