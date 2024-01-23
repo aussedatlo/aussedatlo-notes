@@ -6,7 +6,8 @@ Welcome to my website, where I note everything related to my self hosted journey
 
 ## Posts
 
-- [[09-caddy-wildcard-certificates]]: How to configure your Caddy instance with Wildcard Certificates to reverse to new services quickly 🔐.
+- [[10-adguard-home-in-docker]]: How to run AdGuard Home on your home server to protect you from intrusive advertising and tracking 👁️‍🗨️. 
+- [[09-caddy-wildcard-certificates]]: How to configure your Caddy instance with Wildcard Certificates to quickly setup new services through reverse proxy 🔐.
 - [[08-plausible-in-docker]]: Lightweight, privacy focusing, opensource, self hostable web analytics tool for your personal website 📊.
 - [[07-quartz-auto-deploy]]: How to auto deploy your personal Quartz website into your home server, using Caddy and Github webhooks 🚀.
 - [[06-caddy-for-quartz]]: How to host Quartz blog using Caddy ✨.
