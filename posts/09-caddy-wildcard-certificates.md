@@ -13,9 +13,9 @@ title: Caddy Wildcard Certificates
 > [!warning] Work in progress
 # 🔐 Wildcard Certificates in Caddy server
 
-Managing multiple subdomains within a website can be a complex task, especially when it comes to handling security certificates. Each subdomain typically requires its own unique SSL/TLS certificate to ensure a secure connection between the user's browser and the server. As the number of subdomains grows, so does the challenge of keeping track of and renewing individual certificates, leading to increased administrative overhead and potential security vulnerabilities.
+Managing **multiple subdomains** within a website can be a **complex task**, especially when it comes to handling security certificates. Each subdomain typically requires its own unique SSL/TLS certificate to ensure a **secure connection** between the user's browser and the server. As the number of subdomains grows, so does the challenge of keeping track of and renewing individual certificates, leading to increased administrative overhead and potential security vulnerabilities.
 
-In response to these challenges, wildcard certificates have emerged as a valuable solution. Wildcard certificates provide a way to secure not just a single subdomain but all of its subdomains under a common domain with a single certificate. 
+In response to these challenges, **wildcard certificates** have emerged as a valuable solution. Wildcard certificates provide a way to secure **not just a single subdomain but all of its subdomains** under a common domain with a **single certificate**. 
 
 ## Prerequisite
 
@@ -25,7 +25,7 @@ In response to these challenges, wildcard certificates have emerged as a valuabl
 ---
 ## What is a Wildcard Certificate
 
-A wildcard certificate is a type of SSL/TLS certificate that is designed to secure a domain and all its subdomains with a single certificate. The wildcard character `*` is used in the domain name field to indicate that the certificate is valid for any subdomain under the specified domain.
+A **wildcard certificate** is a type of SSL/TLS certificate that is designed to secure a domain and all its subdomains with a single certificate. The wildcard character `*` is used in the domain name field to indicate that the certificate is valid for **any subdomain** under the specified domain.
 
 For example, if you have a wildcard certificate for `*.domain.name` it would be valid for `sub1.domain.name`, `sub2.domain.name`, `sub3.domain.name` and so on. The asterisk acts as a placeholder for any subdomain.
 
@@ -35,16 +35,16 @@ For example, if you have a wildcard certificate for `*.domain.name` it would be 
 ---
 ## How to configure Caddy
 
-Caddy can be configured to use Wildcard Certificates.
+**Caddy** can be configured to use **wildcard certificates**.
 
 > [!note]
 > This guide presupposes that you are utilizing Caddy within a Docker container.
 
 ### Add DNS Module
 
-Since [Let's encrypt requires](https://letsencrypt.org/docs/challenge-types/) the `DNS-01 challenge` to obtain wildcard certificate (and not the common `HTTP-01 challenge`) , we will need to add a DNS module that allow Caddy to resolve the challenge.
+Since [Let's encrypt requires](https://letsencrypt.org/docs/challenge-types/) the `DNS-01 challenge` to obtain wildcard certificate (and not the common `HTTP-01 challenge`) , we will need to add a **DNS module** that allow Caddy to resolve the challenge.
 
-A DNS Challenge asks to prove that we are in control of the domain DNS by putting a specific value in a `TXT` record under that domain name. If it finds a match, the issuer can proceed to issue a certificate.
+A DNS Challenge asks to prove that **we are in control of the domain** DNS by putting a specific value in a `TXT` record under that domain name. If it finds a match, the issuer can proceed to issue a certificate.
 
 > [!note] Note
 > With the `DNS-01 challenge` challenge, there is no requirement for ports `443` and `80` to be accessible from the internet.

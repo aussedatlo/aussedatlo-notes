@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ressources/05-fail2ban-in-docker/05-ban-local-401.md",
+                "file": "posts/09-caddy-wildcard-certificates.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ressources/05-fail2ban-in-docker/05-ban-local-401.md",
+                "file": "posts/09-caddy-wildcard-certificates.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ressources/05-fail2ban-in-docker/05-ban-local-401.md",
+                "file": "posts/09-caddy-wildcard-certificates.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ressources/05-fail2ban-in-docker/05-ban-local-401.md"
+                "file": "posts/09-caddy-wildcard-certificates.md"
               }
             }
           }
@@ -147,11 +147,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "7eacf7ad169aac43",
+  "active": "b982cb6ad3d60c66",
   "lastOpenFiles": [
+    "posts/07-quartz-auto-deploy.md",
+    "ressources/07-quartz-auto-deploy/07-webhook.excalidraw",
+    "ressources/07-quartz-auto-deploy/07-webhook.md",
+    "ressources/07-quartz-auto-deploy/07-intro.excalidraw",
+    "ressources/07-quartz-auto-deploy/07-intro.md",
+    "ressources/07-quartz-auto-deploy/07-endpoint.excalidraw",
+    "ressources/07-quartz-auto-deploy/07-endpoint.md",
+    "ressources/05-fail2ban-in-docker/05-ban-local-401.md",
     "ressources",
     "ressources/02-caddy-hardening/02-ban-local.md",
-    "ressources/05-fail2ban-in-docker/05-ban-local-401.md",
     "ressources/01-caddy-in-docker/01-caddy-reverse-example.png",
     "ressources/01-caddy-in-docker",
     "ressources/02-caddy-hardening",
@@ -160,7 +167,6 @@
     "ressources/08-plausible-in-docker/08-create-account.png",
     "ressources/08-plausible-in-docker",
     "ressources/01-caddy-in-docker/01-caddy-reverse-example-2.png",
-    "ressources/07-quartz-auto-deploy/07-endpoint.excalidraw",
     "posts/01-caddy-in-docker.md",
     "ressources/07-quartz-auto-deploy",
     "posts/09-caddy-wildcard-certificates.md",
@@ -169,13 +175,9 @@
     "posts/09-caddy-wildcard-certificates",
     "posts/07-quartz-auto-deploy/index.md",
     "ressources/07-quartz-auto-deploy/07-github-screenshot.png",
-    "posts/07-quartz-auto-deploy.md",
     "ressources/07-quartz-auto-deploy/07-webhook.png",
-    "ressources/07-quartz-auto-deploy/07-webhook.excalidraw",
     "ressources/07-quartz-auto-deploy/07-intro.png",
-    "ressources/07-quartz-auto-deploy/07-intro.excalidraw",
     "ressources/07-quartz-auto-deploy/07-endpoint.png",
-    "drawings/07",
     "Excalidraw/Drawing 2024-01-22 22.27.02.excalidraw.md",
     "posts/08-plausible-in-docker/index.md",
     "posts/06-caddy-for-quartz.md",
@@ -191,7 +193,6 @@
     "drawings/Drawing 2023-12-29 11.01.53.excalidraw.md",
     "experiences.md",
     "posts/08-what-is-reverse-proxy.md",
-    "posts/03-fail2ban-in-docker.md",
-    "Untitled.md"
+    "posts/03-fail2ban-in-docker.md"
   ]
 }
