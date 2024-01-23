@@ -7,7 +7,12 @@ tags:
 date: 2023-12-21
 ---
 
-# 📛 What is Fail2Ban
+# 📛 Fail2Ban in Docker
+
+![[marco-chilese-2sMbKyQvom4-unsplash.jpg]]
+
+---
+## Intro
 
 Fail2Ban is an open-source intrusion prevention framework that helps protect Linux servers from various types of attacks. It works by monitoring log files for patterns that may indicate malicious activity, such as repeated failed login attempts, and then takes action to block the source of the suspicious activity.
 
@@ -157,3 +162,4 @@ Status for the jail: sshd
 ## Ressources
 
 - [Docker image from crazy-max](https://github.com/crazy-max/docker-fail2ban/tree/master)
+- Photo by [Marco Chilese](https://unsplash.com/@chmarco?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/gray-metal-frame-2sMbKyQvom4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)

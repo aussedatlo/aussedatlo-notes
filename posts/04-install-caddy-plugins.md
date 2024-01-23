@@ -9,13 +9,15 @@ date: 2023-12-22
 
 # 📦 How to Install Caddy Plugins
 
-**Caddy** is designed with a user-friendly architecture that facilitates the creation of plugins. The community actively contributes numerous plugins, which can be explored in the comprehensive list available [here](https://caddyserver.com/docs/modules/). These plugins enhance functionality, allowing users to, for instance, format logs and execute shell commands.
+![[kelly-sikkema-7alo7OJVNVw-unsplash.jpg]]
 
 ---
 
-## Prerequisite
+## Intro
 
-To proceed with this guide, ensure you have:
+**Caddy** is designed with a user-friendly architecture that facilitates the creation of plugins. The community actively contributes numerous plugins, which can be explored in the comprehensive list available [here](https://caddyserver.com/docs/modules/). These plugins enhance functionality, allowing users to, for instance, format logs and execute shell commands.
+
+## Prerequisite
 
 - A **Caddy** instance (check out [[01-caddy-in-docker]])
 
@@ -100,3 +102,4 @@ docker-compose rebuild
 ## Ressources
 
 - [Caddy's Modules](https://caddyserver.com/docs/modules/)
+- Photo by [Kelly Sikkema](https://unsplash.com/@kellysikkema?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/black-usb-cable-plugged-in-white-electric-socket-7alo7OJVNVw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)

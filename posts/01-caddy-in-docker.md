@@ -6,8 +6,14 @@ tags:
   - reverse-proxy
 date: 2023-12-16
 ---
+e
+# 🛒 Caddy in Docker
 
-# 🛒 What is Caddy
+![[fabio-bracht-e3oE-l-rtpA-unsplash.jpg]]
+
+---
+
+## Intro
 
 **Caddy v2**, a server-of-servers, is a Go application that is **fully open source**,
 capable of functioning both as a **server** and a **reverse proxy**.
@@ -220,3 +226,4 @@ You have now, as previously, a redirection from `https://sub.domain.name` to `li
 ## Ressources
 
 - [Caddy Documentation](https://caddyserver.com/docs/)
+- Photo by [Fabio Bracht](https://unsplash.com/@bracht?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/arranged-blue-grocery-carts-e3oE-l-rtpA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)

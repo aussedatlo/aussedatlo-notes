@@ -10,17 +10,19 @@ date: 2023-12-18
 
 # 🔒 How to secure Caddy instance
 
-In certain case, when you cant your applications to be available no matter where you are, your **Caddy** instance can be opened to the **Internet**.
+![[jonatan-pie-olMIzrcu-bA-unsplash.jpg]]
+
+---
+
+## Intro
+
+In certain case, when you need your self hosted applications to be available no matter where you are, your **Caddy** instance can be opened to the **Internet**.
 
 It can be dangerous because of the numerous bad actors that continuously scan the web looking for vulnerabilities to exploit.
 
 In this post, I will show you how to step-up the security of your **Caddy** server.
 
----
-
 ## Prerequisite
-
-To proceed with this guide, ensure you have:
 
 - A **Caddy** instance (check out [[01-caddy-in-docker]])
 
@@ -133,3 +135,4 @@ sub.domain.name {
 
 - [Caddy Documentation: snippets](https://caddyserver.com/docs/caddyfile/concepts#snippets)
 - [Caddy Documentation: headers syntax](https://caddyserver.com/docs/caddyfile/directives/header#syntax)
+- Photo by [Jonatan Pie](https://unsplash.com/@r3dmax?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/love-lock-photo-with-black-frame-olMIzrcu-bA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)

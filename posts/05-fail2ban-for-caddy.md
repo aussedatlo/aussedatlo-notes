@@ -10,6 +10,9 @@ date: 2023-12-23
 
 # 🛡️ How to configure Fail2Ban for Caddy
 
+![[baron-gimenez-8PGcxEJ678k-unsplash.jpg]]
+
+---
 ## Prerequisite
 
 To proceed with this guide, ensure you have:
@@ -154,3 +157,4 @@ docker-compose restart
 ## Ressources
 
 - [Fail2Ban Github](https://github.com/fail2ban/fail2ban)
+- Photo by [Baron Gimenez](https://unsplash.com/@baronseye?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/silver-colored-chain-necklace-with-box-8PGcxEJ678k?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)

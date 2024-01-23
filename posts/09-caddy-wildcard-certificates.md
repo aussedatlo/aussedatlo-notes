@@ -13,6 +13,12 @@ title: Caddy Wildcard Certificates
 > [!warning] Work in progress
 # 🔐 Wildcard Certificates in Caddy server
 
+![[franck-DoWZMPZ-M9s-unsplash.jpg]]
+
+---
+
+## Intro
+
 Managing **multiple subdomains** within a website can be a **complex task**, especially when it comes to handling security certificates. Each subdomain typically requires its own unique SSL/TLS certificate to ensure a **secure connection** between the user's browser and the server. As the number of subdomains grows, so does the challenge of keeping track of and renewing individual certificates, leading to increased administrative overhead and potential security vulnerabilities.
 
 In response to these challenges, **wildcard certificates** have emerged as a valuable solution. Wildcard certificates provide a way to secure **not just a single subdomain but all of its subdomains** under a common domain with a **single certificate**. 
@@ -200,3 +206,4 @@ With this configuration, the main domain `domain.name` and the subdomain `sub1.d
 - [Caddy DNS modules](https://github.com/caddy-dns)
 - [Caddy DNS documentation](https://caddy.community/t/how-to-use-dns-provider-modules-in-caddy-2/8148)
 - [Let's encrypt challenge types](https://letsencrypt.org/docs/challenge-types/)
+- Photo by [Franck](https://unsplash.com/@franckinjapan?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/black-iphone-5-on-yellow-textile-DoWZMPZ-M9s?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)

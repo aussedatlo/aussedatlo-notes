@@ -10,6 +10,8 @@ tags:
 
 # 🚀 Auto Deploy Quartz Website
 
+![[auto-deploy.png]]
+
 ---
 
 ## Intro

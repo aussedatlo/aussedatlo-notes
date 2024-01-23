@@ -9,6 +9,12 @@ date: 2023-12-26
 
 # ✨ What is Quartz
 
+![[krystal-ng-PrQqQVPzmlw-unsplash.jpg]]
+
+---
+
+## Intro
+
 From the official [Quartz Github](https://github.com/jackyzha0/quartz)
 
 > [!quote]
@@ -16,11 +22,7 @@ From the official [Quartz Github](https://github.com/jackyzha0/quartz)
 
 Personally, I love **Quartz** for its seamless integration with [Obsidian](https://obsidian.md/), enabling me to craft this blog effortlessly using my favorite note editor.
 
----
-
 ## Prerequisite
-
-To proceed with this guide, ensure you have:
 
 - A static website generated with **Quartz** (read the [Quartz documentation](https://quartz.jzhao.xyz/))
 - A **Caddy** instance (check out [[01-caddy-in-docker]])
@@ -103,3 +105,4 @@ With this configuration, any errors ranging from `401` to `410` will be displaye
 - Obsidian
   - [Obsidian website](https://obsidian.md/)
   - [Obsidian Git plugin](https://github.com/denolehov/obsidian-git)
+- Photo by [Krystal Ng](https://unsplash.com/@bykrystal?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/purple-cyrstal-quarts-stone-PrQqQVPzmlw?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
