@@ -5,9 +5,10 @@ tags:
   - fail2ban
   - security
 date: 2023-12-21
+description: How to protect your services from intruders with the log watcher Fail2Ban.
+icon: 📛
 ---
 
-# 📛 Fail2Ban in Docker
 
 ![[marco-chilese-2sMbKyQvom4-unsplash.jpg]]
 

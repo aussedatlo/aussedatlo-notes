@@ -3,11 +3,11 @@ title: Caddy for Quartz
 tags:
   - caddy
   - quartz
-  - reverse-proxy
 date: 2023-12-26
+description: How to host Quartz blog using Caddy.
+icon: ✨
 ---
 
-# ✨ What is Quartz
 
 ![[krystal-ng-PrQqQVPzmlw-unsplash.jpg]]
 

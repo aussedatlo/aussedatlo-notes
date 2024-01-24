@@ -3,12 +3,12 @@ title: Caddy Hardening
 tags:
   - caddy
   - docker
-  - reverse-proxy
   - security
 date: 2023-12-18
+description: How to secure your Caddy instance with simple tips.
+icon: 🔒
 ---
 
-# 🔒 How to secure Caddy instance
 
 ![[jonatan-pie-olMIzrcu-bA-unsplash.jpg]]
 

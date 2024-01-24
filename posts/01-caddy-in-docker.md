@@ -3,11 +3,11 @@ title: Caddy in Docker
 tags:
   - caddy
   - docker
-  - reverse-proxy
 date: 2023-12-16
+description: A simple/powerfull server/reverse proxy managing all your services with ease, running in docker.
+icon: 🛒
 ---
 
-# 🛒 Caddy in Docker
 
 ![[fabio-bracht-e3oE-l-rtpA-unsplash.jpg]]
 

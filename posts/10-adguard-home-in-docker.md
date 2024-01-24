@@ -8,11 +8,13 @@ tags:
   - docker
   - privacy
 date: 2024-01-24
+description: How to run AdGuard Home on your home server to protect you from intrusive advertising and tracking.
+icon: 👁️‍🗨️
 ---
-> [!warning] Work in progress
-# 👁️‍🗨️ AdGuard Home in Docker
+
 
 ![[bogomil-mihaylov-OHxTNeAtNRs-unsplash.jpg]]
+> [!warning] Work in progress
 
 ---
 

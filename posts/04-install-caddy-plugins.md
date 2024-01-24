@@ -5,9 +5,10 @@ tags:
   - plugins
   - docker
 date: 2023-12-22
+description: How to easily install Caddy plugins.
+icon: 📦
 ---
 
-# 📦 How to Install Caddy Plugins
 
 ![[kelly-sikkema-7alo7OJVNVw-unsplash.jpg]]
 

@@ -6,9 +6,11 @@ tags:
   - github
   - quartz
   - docker
+description: How to auto deploy your personal Quartz website into your home server, using Caddy and Github webhooks.
+icon: 🚀
+date: 2023-12-28
 ---
 
-# 🚀 Auto Deploy Quartz Website
 
 ![[auto-deploy.png]]
 

@@ -6,9 +6,10 @@ tags:
   - plausible
   - analytics
 date: 2024-01-04
+description: Lightweight, privacy focusing, opensource, self hostable web analytics tool for your personal website.
+icon: 📊
 ---
 
-# 📊 What is Plausible Analytics
 
 ![[isaac-smith-6EnTPvPPL6I-unsplash.jpg]]
 
