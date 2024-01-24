@@ -24,6 +24,9 @@ icon: 👁️‍🗨️
 
 [AdGuard Home](https://adguard.com/fr/adguard-home/overview.html)  is free, open-source, self-hostable and open to customization. The official documentation and source code can be found on the [github](https://github.com/AdguardTeam/AdGuardHome).
 
+> [!warning] Warning
+> For your DNS server to be utilized across all your devices, it's essential to configure a static IP address.
+
 ## Prerequisite
 
 - Docker
@@ -174,6 +177,9 @@ In certain situations, some routers **may not support** or **provide limited opt
 
 >[!warning] Warning
 >It's crucial to have only one DHCP server active on your network at a time. Running multiple DHCP services simultaneously can lead to issues such as duplicate IP assignments and unpredictable network behavior. If you decide to use AdGuard Home's DHCP service, ensure that the DHCP service on your router is disabled to maintain a stable and well-managed network environment.
+
+> [!warning] Warning
+> Ensure to set up a static IP address without relying on DHCP for your server. Since your server will be serving as the DHCP provider, it cannot assign itself an IP configuration dynamically.
 
 Configuring AdGuard Home with DHCP becomes more straightforward by utilizing the `host` Docker network driver.
 
