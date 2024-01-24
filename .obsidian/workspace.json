@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "posts/10-adguard-home-in-docker.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "posts/10-adguard-home-in-docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "posts/10-adguard-home-in-docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "posts/10-adguard-home-in-docker.md"
               }
             }
           }
@@ -149,7 +149,12 @@
   },
   "active": "b982cb6ad3d60c66",
   "lastOpenFiles": [
+    "ressources/10-adguard-home-in-docker/10-welcome-step-2.png",
     "posts/10-adguard-home-in-docker.md",
+    "ressources/10-adguard-home-in-docker/10-dashboard.png",
+    "ressources/10-adguard-home-in-docker/10-login.png",
+    "ressources/10-adguard-home-in-docker/10-welcome-step-3.png",
+    "ressources/10-adguard-home-in-docker/10-welcome.png",
     "index.md",
     "posts/01-caddy-in-docker.md",
     "posts/09-caddy-wildcard-certificates.md",
@@ -171,15 +176,10 @@
     "ressources/07-quartz-auto-deploy/nik-MAgPyHRO0AA-unsplash.jpg",
     "ressources/07-quartz-auto-deploy/auto-deploy.png",
     "ressources/07-quartz-auto-deploy/nik-MAgPyHRO0AA-unsplash.jpg.crdownload",
-    "ressources/06-caddy-for-quartz/krystal-ng-PrQqQVPzmlw-unsplash.jpg",
     "ressources/06-caddy-for-quartz/krystal-ng-PrQqQVPzmlw-unsplash.jpg.crdownload",
     "ressources/06-caddy-for-quartz",
-    "ressources/05-fail2ban-for-caddy/baron-gimenez-8PGcxEJ678k-unsplash.jpg",
     "ressources/05-fail2ban-in-docker",
-    "ressources/04-install-caddy-plugins/kelly-sikkema-7alo7OJVNVw-unsplash.jpg",
     "ressources/04-install-caddy-plugins/kelly-sikkema-7alo7OJVNVw-unsplash.jpg.crdownload",
-    "ressources/03-fail2ban-in-docker/marco-chilese-2sMbKyQvom4-unsplash.jpg",
-    "ressources/02-caddy-hardening/jonatan-pie-olMIzrcu-bA-unsplash.jpg",
     "ressources/07-quartz-auto-deploy/07-webhook.md",
     "ressources/07-quartz-auto-deploy/07-intro.md",
     "ressources/07-quartz-auto-deploy/07-endpoint.md",
