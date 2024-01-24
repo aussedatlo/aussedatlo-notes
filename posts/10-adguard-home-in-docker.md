@@ -66,7 +66,7 @@ services:
        - ./conf:/opt/adguardhome/conf
 ```
 
-AdGuard need a lot of port mapping:
+AdGuard can require a lot of port mapping:
 - `3000` for initial setup
 - `53` for the DNS server
 - `80` for the web interface default port
@@ -75,7 +75,7 @@ AdGuard need a lot of port mapping:
 - `853` for [DNS-over-TLS](https://github.com/AdguardTeam/Adguardhome/wiki/Encryption)
 - `5443` for a [DNSCrypt](https://github.com/AdguardTeam/Adguardhome/wiki/DNSCrypt) server
 
-For this example we will only use the basic DNS server and will select port `3000` for admin interface only instead of the default port `80`.
+In this example, we will exclusively utilize the **basic DNS server**. We will also maintaining port `3000` for the admin interface. This choice helps **prevent conflicts** with other services, such as reverse-proxy or web-server services, that commonly utilize port `80`.
 
 ```yml
 version: "2"
@@ -94,40 +94,85 @@ services:
 ```
 
 
-On linux systems, a DNS is already integrated with systemd. You can disable it with the command:
+Before initiating the container, verify whether a DNS server is currently running on your system by executing the following command:
+
+```bash
+netstat -nlp | grep ":53 "
+```
+
+On Ubuntu-like systems, a DNS server is integrated with systemd. You can disable it using the following command:
+
 ```bash
 systemctl stop systemd-resolved.service
 ```
 
-Start the service:
+Now, you can start the container using the command:
+
 ```bash
 docker compose up -d
 ```
 
 ### Web Setup
 
-Go to `http://127.0.0.1:3000/install.html`
+Once the container started, you can visit the URL `http://127.0.0.1:3000` to access the web interface.
+
+> [!note] Note
+> For remote installations, you can replace the IP address `127.0.0.1` with the actual IP address of the machine where AdGuard is installed, such as `192.168.0.4` for example.
+
+You should see the **Welcome screen**:
 
 ![[10-welcome.png|500]]
 
+Create the basic configuration, changing the **Admin Web Interface** port to `3000` instead of `80`. Maintain the default **DNS port** as `53`.
+
 ![[10-welcome-step-2.png|500]]
+
+Create a `username` and `password` that will be used to connect to the **web interface**.
 
 ![[10-welcome-step-3.png|500]]
 
+After the **Welcome** process finished, refresh the URL `http://127.0.0.1` to access the **login interface**.
+
 ![[10-login.png|500]]
+
+You should be able to access the **Dashboard**.
 
 ![[10-dashboard.png|500]]
 
-### Router configuration
 ### Testing
 
-Test the DNS with:
+To confirm the correct setup of the DNS, you can use `nslookup` to query the DNS for the resolution of a domain name. If the server is configured properly, the command should return the IP address associated with the specified domain name.
+
+For example, run the `nslookup` command below:
+
 ```bash
 nslookup google.com 127.0.0.1
 ```
 
+The command should return a response similar to the following:
+```txt
+Server:         127.0.0.1
+Address:        127.0.0.1#53
+
+Non-authoritative answer:  
+Name:   google.com
+Address: 142.250.179.110
+Name:   google.com
+Address: 2a00:1450:4007:818::200e
+```
+
+### Router configuration
+
+To configure this custom DNS for all your home devices, you'll need to set up the correct configuration directly on your router. Typically, the DHCP server, responsible for assigning IP addresses, also transmits the DNS address. In many cases, the router handles both DNS and DHCP server functions. The configuration details may vary depending on the type of router you are using.
+
+In certain situations, some routers may not support or provide limited options for custom DNS settings. In such cases, you should have the option to disable the DNS and DHCP services on your router and utilize the DNS and DHCP services provided by AdGuard Home. AdGuard Home does support DHCP services, allowing you to manage both DNS and DHCP functionalities from within the AdGuard Home environment.
+
 ---
 ## Configure DHCP
+
+>[!warning] Warning
+>It's crucial to have only one DHCP server active on your network at a time. Running multiple DHCP services simultaneously can lead to issues such as duplicate IP assignments and unpredictable network behavior. If you decide to use AdGuard Home's DHCP service, ensure that the DHCP service on your router is disabled to maintain a stable and well-managed network environment.
+
 
 
 ---
