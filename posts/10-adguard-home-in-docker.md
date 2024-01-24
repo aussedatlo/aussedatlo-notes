@@ -117,7 +117,7 @@ docker compose up -d
 Once the container started, you can visit the URL `http://127.0.0.1:3000` to access the web interface.
 
 > [!note] Note
-> For remote installations, you can replace the IP address `127.0.0.1` with the actual IP address of the machine where AdGuard is installed, such as `192.168.0.4` for example.
+> For remote installations, you can replace the IP address `127.0.0.1` with the actual IP address of the machine where AdGuard is installed, such as `192.168.1.37` for example.
 
 You should see the **Welcome screen**:
 
@@ -170,10 +170,55 @@ In certain situations, some routers **may not support** or **provide limited opt
 ---
 ## Configure DHCP
 
+### Configuration
+
 >[!warning] Warning
 >It's crucial to have only one DHCP server active on your network at a time. Running multiple DHCP services simultaneously can lead to issues such as duplicate IP assignments and unpredictable network behavior. If you decide to use AdGuard Home's DHCP service, ensure that the DHCP service on your router is disabled to maintain a stable and well-managed network environment.
 
+Configuring AdGuard Home with DHCP becomes more straightforward by utilizing the `host` Docker network driver.
 
+Edit the `docker-compose.yml` file as follows:
+
+```yml {7}
+version: "2"
+services:
+   adguardhome:
+     image: adguard/adguardhome
+     container_name: adguardhome
+     restart: unless-stopped
+     network_mode: host
+     volumes:
+       - ./work:/opt/adguardhome/work
+       - ./conf:/opt/adguardhome/conf
+```
+
+Then, visit `https://127.0.0.1/#dhcp`
+
+![[10-dhcp.png|500]]
+
+Specify your network interface that  is connected to your local network, in my case, `eno1`, with an IP set to `192.168.1.37`.
+
+For the DHCP IPv4 settings, you can choose any range of IP addresses, subnet mask, and DHCP lease time. Specify the Gateway IP as the IP address of your router; in my case, it's `192.168.1.254`.
+
+### Testing
+
+To verify your DHCP setup, you can run the `nmap` command on your device:
+
+```
+sudo nmap --script broadcast-dhcp-discover
+```
+
+Upon successful configuration, you should observe an `IP Offered` within the designated range, the accurate `Router` value, and a `Domain Name Server` pointing to the IP address of your AdGuard Home server.
+
+### DHCP static leases
+
+To allocate specific IP addresses for particular devices through your DHCP server, you can use the DHCP static leases functionality.
+
+Click on the **Add static lease** button and enter the MAC address of your device, the reserved IP, and the hostname.
+
+![[10-dhcp-static-leases.png|500]]
+
+In this example, the device with the MAC address `aa:aa:aa:aa:aa:aa` will always receive the IP address `192.168.1.1` from the DHCP server due to the static lease configuration.
 
 ---
 ## Configure Caddy
