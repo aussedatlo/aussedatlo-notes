@@ -22,7 +22,7 @@ icon: 👁️‍🗨️
 
 [AdGuard Home](https://adguard.com/fr/adguard-home/overview.html) is a software that protect you from **advertising** and **tracking** enhancing your **privacy**. It work as a **DNS** filter so can work on **all your devices** without the need to install client, no matter the type or the operating system of the device.
 
-[AdGuard Home](https://adguard.com/fr/adguard-home/overview.html)  is free, open-source, self-hostable and open to customization. The official documentation and source code can be found on the [github](https://github.com/AdguardTeam/AdGuardHome)
+[AdGuard Home](https://adguard.com/fr/adguard-home/overview.html)  is free, open-source, self-hostable and open to customization. The official documentation and source code can be found on the [github](https://github.com/AdguardTeam/AdGuardHome).
 
 ## Prerequisite
 
@@ -163,9 +163,9 @@ Address: 2a00:1450:4007:818::200e
 
 ### Router configuration
 
-To configure this custom DNS for all your home devices, you'll need to set up the correct configuration directly on your router. Typically, the DHCP server, responsible for assigning IP addresses, also transmits the DNS address. In many cases, the router handles both DNS and DHCP server functions. The configuration details may vary depending on the type of router you are using.
+To configure this custom DNS for **all** your home devices, you'll need to set up the correct configuration directly on your router. Typically, the **DHCP** server, responsible for assigning IP addresses, also transmits the **DNS address**. In many cases, the router handles both **DNS and DHCP** server functions. The configuration details may vary depending on the type of router you are using.
 
-In certain situations, some routers may not support or provide limited options for custom DNS settings. In such cases, you should have the option to disable the DNS and DHCP services on your router and utilize the DNS and DHCP services provided by AdGuard Home. AdGuard Home does support DHCP services, allowing you to manage both DNS and DHCP functionalities from within the AdGuard Home environment.
+In certain situations, some routers **may not support** or **provide limited options** for custom DNS settings. In such cases, you should have the option to disable the DNS and DHCP services on your router and utilize the DNS and DHCP services **provided by AdGuard Home**. AdGuard Home does support DHCP services, allowing you to manage both DNS and DHCP functionalities from within the AdGuard Home environment.
 
 ---
 ## Configure DHCP
