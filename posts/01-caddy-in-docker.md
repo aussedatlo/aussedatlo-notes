@@ -8,9 +8,6 @@ description: A simple/powerfull server/reverse proxy managing all your services 
 icon: 🛒
 ---
 
-
-![[fabio-bracht-e3oE-l-rtpA-unsplash.jpg]]
-
 ---
 
 ## Intro

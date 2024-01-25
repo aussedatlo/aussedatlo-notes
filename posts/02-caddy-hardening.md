@@ -9,9 +9,6 @@ description: How to secure your Caddy instance with simple tips.
 icon: 🔒
 ---
 
-
-![[jonatan-pie-olMIzrcu-bA-unsplash.jpg]]
-
 ---
 
 ## Intro

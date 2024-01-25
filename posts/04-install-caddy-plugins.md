@@ -9,9 +9,6 @@ description: How to easily install Caddy plugins.
 icon: 📦
 ---
 
-
-![[kelly-sikkema-7alo7OJVNVw-unsplash.jpg]]
-
 ---
 
 ## Intro

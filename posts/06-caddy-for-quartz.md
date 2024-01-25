@@ -8,9 +8,6 @@ description: How to host Quartz blog using Caddy.
 icon: ✨
 ---
 
-
-![[krystal-ng-PrQqQVPzmlw-unsplash.jpg]]
-
 ---
 
 ## Intro

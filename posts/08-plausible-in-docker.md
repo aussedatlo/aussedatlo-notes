@@ -10,9 +10,6 @@ description: Lightweight, privacy focusing, opensource, self hostable web analyt
 icon: 📊
 ---
 
-
-![[isaac-smith-6EnTPvPPL6I-unsplash.jpg]]
-
 ---
 
 ## Intro

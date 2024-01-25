@@ -9,9 +9,6 @@ description: How to protect your services from intruders with the log watcher Fa
 icon: 📛
 ---
 
-
-![[marco-chilese-2sMbKyQvom4-unsplash.jpg]]
-
 ---
 ## Intro
 

@@ -10,9 +10,6 @@ description: How to configure Fail2Ban to block undesired traffic attempting to 
 icon: 🛡️
 ---
 
-
-![[baron-gimenez-8PGcxEJ678k-unsplash.jpg]]
-
 ---
 ## Prerequisite
 

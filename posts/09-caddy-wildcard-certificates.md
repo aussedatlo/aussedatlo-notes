@@ -9,9 +9,6 @@ description: How to configure your Caddy instance with Wildcard Certificates to 
 icon: 🔐
 ---
 
-
-![[franck-DoWZMPZ-M9s-unsplash.jpg]]
-
 ---
 
 ## Intro
