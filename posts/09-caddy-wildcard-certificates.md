@@ -131,8 +131,8 @@ You can now add all the subdomains that you want directly in your `Caddyfile`:
 
 ```txt {6-14}
 *.domain.name, domain.name {  
-    tls {  
-         dns ionos {env.IONOS_API_TOKEN}  
+    tls {  
+        dns ionos {env.IONOS_API_TOKEN}  
     }
    
     @main host domain.name
@@ -159,7 +159,7 @@ Update your `Caddyfile` with the following changes:
 ```txt {6-8} {20-24} {26-29}
 *.domain.name, domain.name {  
     tls {  
-         dns ionos {env.IONOS_API_TOKEN}  
+        dns ionos {env.IONOS_API_TOKEN}  
     }
 
 	@outside {

@@ -230,8 +230,94 @@ In this example, the device with the MAC address `aa:aa:aa:aa:aa:aa` will always
 
 ## Configure Caddy
 
----
+If you have setup a [Caddy instance with docker](posts/01-caddy-in-docker) and a [wildcard certificates configuration](09-caddy-wildcard-certificates), the configuration should be easy to setup.
 
+### Network mode Host
+
+If you have the `network_mode: host` configuration in your AdGuard Home `docker-compose.yml`, you need to know the host IP from Caddy, to properly redirect data to the correct service.
+
+To get the IP of the host from the `caddy` container, execute:
+
+```bash
+docker exec -it caddy /sbin/ip route | awk '/default/ { print $3 }' | head -n1
+```
+
+Now, you can edit your `Caddyfile` and add the `adguard` configuration:
+
+```txt {11-14}
+*.domain.name, domain.name {  
+    tls {  
+        dns <provider> {env.API_KEY}  
+    }
+   
+    @main host domain.name
+    handle @main {
+        respond "OK from domain.name"
+    }
+
+    @adguard host adguard.domain.name
+    handle @adguard {
+        reverse_proxy http://<host-ip>:3000
+    }
+}
+```
+
+### Network mode Bridge
+
+If you opt not to employ `network_mode: host`, the recommended approach is to use the Docker hostname `adguardhome` within a shared network with Caddy.
+
+Edit your `docker-compose.yml`:
+
+```yml {11-14}
+version: "2"
+services:
+   adguardhome:
+     image: adguard/adguardhome
+     container_name: adguardhome
+     restart: unless-stopped
+     ports:
+       - 53:53/tcp
+       - 53:53/udp
+     volumes:
+       - ./work:/opt/adguardhome/work
+       - ./conf:/opt/adguardhome/conf
+networks:
+  default:
+     external:
+        name: caddy
+```
+
+> [!note] Note
+>   With this configuration, there's no longer a need to map port `3000` externally, as Caddy will access it directly through the Docker hostname `adguardhome`. You can exclusively access it via HTTPS using the subdomain `adguard.domain.name` from Caddy.
+
+Then, use the `Caddyfile` configuration:
+
+```txt {13}
+*.domain.name, domain.name {  
+    tls {  
+        dns <provider> {env.API_KEY}  
+    }
+   
+    @main host domain.name
+    handle @main {
+        respond "OK from domain.name"
+    }
+
+    @adguard host adguard.domain.name
+    handle @adguard {
+        reverse_proxy http://adguardhome:3000
+    }
+}
+```
+
+## Hardening
+
+You can refer to [[09-caddy-wildcard-certificates#Hardening|my previous post]] to configure Caddy to AdGuard only in your local network. You can also [[05-fail2ban-for-caddy|setup Fail2Ban for Caddy]] to protect your service.
+
+---
 ## Ressources
 
-- Photo by [Bogomil Mihaylov](https://unsplash.com/@bogomi?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/red-and-white-stop-road-sign-near-green-tree-OHxTNeAtNRs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- [AdGuard Home Website](https://adguard.com/en/adguard-home/overview.html)
+- [AdGuard Home GitHub](https://github.com/AdguardTeam/AdGuardHome)
+- [[01-caddy-in-docker|Setup Caddy in Docker]]
+- [[09-caddy-wildcard-certificates|Setup Caddy for Wildcard Certificates]]

@@ -176,4 +176,3 @@ plausible.domain.name {
 - Plausible [github](https://github.com/plausible)
 - [[01-caddy-in-docker]]
 - [[02-caddy-hardening]]
-- Photo by [Isaac Smith](https://unsplash.com/@isaacmsmith?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/pen-on-paper-6EnTPvPPL6I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
