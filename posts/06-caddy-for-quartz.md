@@ -4,7 +4,7 @@ tags:
   - caddy
   - quartz
 date: 2023-12-26
-description: How to host Quartz blog using Caddy.
+description: Learn to serve static websites generated with Quartz v4 from Obsidian Vault using only Caddy.
 icon: ✨
 ---
 

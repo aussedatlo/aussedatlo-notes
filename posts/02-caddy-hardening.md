@@ -5,7 +5,7 @@ tags:
   - docker
   - security
 date: 2023-12-18
-description: How to secure your Caddy instance with simple tips.
+description: Learn quick and simple security tips to protect your Caddy instance against potential threats.
 icon: 🔒
 ---
 

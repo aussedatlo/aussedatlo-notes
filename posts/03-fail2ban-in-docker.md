@@ -5,11 +5,12 @@ tags:
   - fail2ban
   - security
 date: 2023-12-21
-description: How to protect your services from intruders with the log watcher Fail2Ban.
+description: Defend your services from potential threats using Fail2Ban, an advanced log monitoring, in a Docker environment.
 icon: 📛
 ---
 
 ---
+
 ## Intro
 
 Fail2Ban is an open-source intrusion prevention framework that helps protect Linux servers from various types of attacks. It works by monitoring log files for patterns that may indicate malicious activity, such as repeated failed login attempts, and then takes action to block the source of the suspicious activity.

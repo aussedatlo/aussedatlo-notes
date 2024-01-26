@@ -5,7 +5,7 @@ tags:
   - plugins
   - docker
 date: 2023-12-22
-description: How to easily install Caddy plugins.
+description: How to unlock new features in Caddy by seamlessly installing plugins in a native or Docker environment.
 icon: 📦
 ---
 
