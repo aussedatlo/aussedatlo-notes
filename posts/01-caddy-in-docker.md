@@ -12,15 +12,15 @@ icon: 🛒
 
 ## Intro
 
-**Caddy v2**, a server-of-servers, is a Go application that is **fully open source**,
+[Caddy](https://caddyserver.com/), a server-of-servers, is a Go application that is **fully open source**,
 capable of functioning both as a **server** and a **reverse proxy**.
 
 With no runtime dependencies, it operates seamlessly on all major platforms,
 embodying a versatile solution that ensures reliable performance across diverse environments.
 
-**Caddy**'s default protocol is **HTTPS**,
+[Caddy](https://caddyserver.com/)'s default protocol is **HTTPS**,
 it will automatically handle all certificates using issuers like [ZeroSSL](https://zerossl.com/) or
-[Let's Encrypt](https://letsencrypt.org/) for example.
+[Let's Encrypt](https://letsencrypt.org/) .
 
 ---
 
@@ -40,7 +40,8 @@ Create a **caddy** docker network
 docker network create caddy
 ```
 
-This network can be utilized to connect **Caddy** with others containers.
+> [!note]
+> This network can be utilized to connect **Caddy** with others containers.
 
 Create a `docker-compose.yml` file that will be containing all the configuration below
 
@@ -68,7 +69,7 @@ networks:
 ```
 
 > [!note] TLS Certificates
-> Since **Caddy** will automatically handle all TLS certificates, it need to access the port `80` and `443`.
+> Since **Caddy** will automatically handle all TLS certificates with `HTTP-01 challenge`, it need to access the port `80` and `443`.
 
 The configuration will be in the `Caddyfile` config file.
 
@@ -109,7 +110,7 @@ domain.name {
 
 Add a volume in the `docker-compose.yml` matching the path of the website sources:
 
-```yml
+```yml {6}
 services:
   caddy:
   ...
