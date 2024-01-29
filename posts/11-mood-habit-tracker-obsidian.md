@@ -42,7 +42,7 @@ In this post, I'll show you how to setup [Obsidian](https://obsidian.md/) - my d
 
 Install the two necessary plugins: [Dataview](https://github.com/blacksmithgu/obsidian-dataview) and [Heatmap Calendar](https://github.com/Richardsl/heatmap-calendar-obsidian).
 
-In addition to the default configuration, make sure to enable the Dataview `Enable Javascript Queries` option. This is required for Heatmap to fetch data accurately.
+In addition to the default configuration, make sure to enable the `Dataview` -> `Enable Javascript Queries` option. This is required for Heatmap to fetch data accurately.
 
 ### Template
 
