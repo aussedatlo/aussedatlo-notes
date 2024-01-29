@@ -24,7 +24,7 @@ The application I desired had to be user-friendly, prioritize my privacy, and pr
 
 Then I thought, why not gather my notes and tracking information together?
 
-In this post, I'll show you how to setup [Obsidian]() - my daily note tool - to create a simple mood and habit tracker. The idea is to create the simplest and most efficient method for data input and then display the data graphically with a heat-map.
+In this post, I'll show you how to setup [Obsidian](https://obsidian.md/) - my daily note tool - to create a simple mood and habit tracker. The idea is to create the simplest and most efficient method for data input and then display the data graphically with a heat-map.
 
 ![[11-demo.png]]
 
