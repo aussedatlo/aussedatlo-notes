@@ -26,7 +26,7 @@ Then I thought, why not gather my notes and tracking information together?
 
 In this post, I'll show you how to setup [Obsidian](https://obsidian.md/) - my daily note tool - to create a simple mood and habit tracker. The idea is to create the simplest and most efficient method for data input and then display the data graphically with a heat-map.
 
-![[11-demo.png]]
+![[11-demo.png|600]]
 
 ---
 ## Prerequisite
@@ -135,11 +135,11 @@ Then, apply the `tracker-template` to the file running the command `Templates: I
 
 Now you can select your mood by selecting the corresponding emoji.
 
-![[11-select-mood.png]]
+![[11-select-mood.png|200]]
 
 And tadaa the heatmap should now display the mood of the day.
 
-![[11-first-mood.png]]
+![[11-first-mood.png|600]]
 
 ---
 ## Styling
