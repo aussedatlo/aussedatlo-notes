@@ -12,8 +12,6 @@ description: How to setup AdGuard Home on your home server to protect all your d
 icon: 👁️‍🗨️
 ---
 
-> [!warning] Work in progress
-
 ---
 
 ## Intro
