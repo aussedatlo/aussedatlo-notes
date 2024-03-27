@@ -9,7 +9,6 @@ date: 2024-01-29
 description: How to track your daily mood and habits using obsidian.
 icon: 📅
 ---
-> [!warning] Work in progress
 
 ---
 ## Intro
