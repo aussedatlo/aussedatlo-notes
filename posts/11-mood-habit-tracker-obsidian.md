@@ -30,7 +30,7 @@ In this post, I'll show you how to setup [Obsidian](https://obsidian.md/) - my d
 ---
 ## Prerequisite
 
-- [Obsidian]() with add-ons
+- [Obsidian](https://obsidian.md/) with add-ons
 	- [Dataview](https://github.com/blacksmithgu/obsidian-dataview)
 	- [Heatmap Calendar](https://github.com/Richardsl/heatmap-calendar-obsidian)
 
