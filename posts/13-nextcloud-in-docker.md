@@ -21,9 +21,6 @@ icon: ☁️
 ## Prerequisite
 
 - Docker
-- Caddy
-
-TEMPORARY
 
 
 ---
@@ -113,6 +110,12 @@ services:
     depends_on:
       - db
       - redis
+```
+
+
+start the container by running
+```bash
+docker compose up -d
 ```
 
 ---
