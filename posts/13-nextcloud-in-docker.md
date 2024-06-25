@@ -112,11 +112,11 @@ services:
       - redis
 ```
 
-
 start the container by running
 ```bash
 docker compose up -d
 ```
+
 
 ---
 ## Ressources
