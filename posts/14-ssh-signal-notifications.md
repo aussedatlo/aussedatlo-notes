@@ -25,7 +25,7 @@ Want instant notifications for new SSH logins? Integrating Signal chat app allow
 ---
 ## Signal
 
-To communicate from the shell environment to Signal, we will use the `signal-cli-rest-api`. This REST API is designed to call the `signal-cli` binary under the hood.
+To communicate from the shell environment to Signal, we will use the [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api). This REST API is designed to call the [signal-cli](https://github.com/AsamK/signal-cli) binary under the hood.
 
 I prefer to use this REST application to avoid installing `signal-cli` directly on my server and to enable integration with other applications, such as `Home Assistant`.
 
@@ -82,3 +82,7 @@ This will automatically send a message through `signal-cli-rest-api` directly to
 
 ---
 ## Ressources
+
+- Photo by [rivage](https://unsplash.com/@sigmund?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/red-and-gray-metal-stand-0dM5sa4zfZ8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- [signal-cli-rest-api GitHub](https://github.com/bbernhard/signal-cli-rest-api)
+- [signal-cli GitHub](https://github.com/AsamK/signal-cli)
