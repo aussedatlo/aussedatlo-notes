@@ -41,21 +41,11 @@ MYSQL_PASSWORD=<mysql_password>
 MYSQL_DATABASE=nextcloud
 MYSQL_HOST=db
 REDIS_HOST=redis
-OVERWRITEPROTOCOL=https
-TRUSTED_PROXIES=caddy
-APACHE_DISABLE_REWRITE_IP=1
-OVERWRITEHOST=<hostname>
 ```
 
 make sure to replace `<root_password>`, `<mysql_password>` and `<hostname>`.
 
-Create `caddy` network:
-```bash
-docker network create caddy
-```
-
-
-docker compose 
+Create a `docker-compose.yml` file with the content :
 ```yml
 services:
   db:
@@ -63,7 +53,7 @@ services:
     container_name: mariadb-database
     command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
     volumes:
-      - ./db_data:/var/lib/mysql
+      - ./data/db_data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD
       - MYSQL_USER
@@ -80,31 +70,26 @@ services:
     image: nextcloud
     container_name: nextcloud-app
     ports:
-      - 8080:8080
+      - 8080:80
     volumes:
-      - ./data:/var/www/html:z
+      - ./data/app:/var/www/html:z
+      - ./php-fpm-www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
     environment:
       - MYSQL_USER
       - MYSQL_PASSWORD
       - MYSQL_DATABASE
       - MYSQL_HOST
       - REDIS_HOST
-      - OVERWRITEPROTOCOL
-      - OVERWRITEHOST
-      - TRUSTED_PROXIES
-      - APACHE_DISABLE_REWRITE_IP
     restart: unless-stopped
     depends_on:
       - db
       - redis
 
   cron:
-    image: nextcloud:stable-fpm
+    image: nextcloud
     container_name: nextcloud-cron
-    networks:
-      - caddy
     volumes:
-      - ./data:/var/www/html:z
+      - ./data/app:/var/www/html:z
     entrypoint: /cron.sh
     restart: unless-stopped
     depends_on:
@@ -112,11 +97,33 @@ services:
       - redis
 ```
 
-start the container by running
+Start the container by running
 ```bash
 docker compose up -d
 ```
 
+You can now access the setup page at the url https://localhost:8080
+
+---
+## Configure HTTPS
+
+To configure HTTPS protocol, and access securely our server, we will use [caddy]() as a reverse proxy.
+
+Check out my guides [[01-caddy-in-docker]], [[02-caddy-hardening]] and [[09-caddy-wildcard-certificates]] for all the possible configurations.
+
+You can add the basic configuration below in your `Caddyfile` :
+
+```text
+cloud.domain.name {
+    reverse_proxy http://nextcloud-app:8080
+}
+```
+
+Now, add the `nextcloud-app` container to the  `caddy` network
+
+```
+
+```
 
 ---
 ## Ressources
