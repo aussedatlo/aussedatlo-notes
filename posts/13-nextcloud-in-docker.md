@@ -14,25 +14,33 @@ icon: ☁️
 
 ## Intro
 
-### What is nextcloud ?
+Nextcloud is a powerful open-source platform for hosting your own cloud storage solution, offering robust features for file synchronization, sharing, and collaboration.
+
+Setting up Nextcloud using Docker simplifies the deployment process, providing an isolated and consistent environment that can be easily managed and scaled.
+
+In this blog, we'll walk you through the basics of configuring Nextcloud in Docker, enabling you to set up your private cloud quickly and efficiently.
 
 
 ---
 ## Prerequisite
 
-- Docker
+Before we start, ensure you have the following prerequisites:
+
+- A server or machine with Docker installed.
+- Basic understanding of Docker concepts such as containers, images, and volumes.
+- Docker Compose.
 
 
 ---
 ## Installation
 
-Create the `nextcloud` folder
+Create a `nextcloud` folder:
 
 ```bash
 mkdir nextcloud && cd nextcloud
 ```
 
-Create the `.env` file and add the content below:
+Create a `.env` file and add the content below:
 
 ```
 MYSQL_ROOT_PASSWORD=<root_password>
@@ -43,9 +51,10 @@ MYSQL_HOST=db
 REDIS_HOST=redis
 ```
 
-make sure to replace `<root_password>`, `<mysql_password>` and `<hostname>`.
+Make sure to replace `<root_password>`, `<mysql_password>` and `<hostname>` with your actual credentials and server details..
 
-Create a `docker-compose.yml` file with the content :
+Create a `docker-compose.yml` file with following the content:
+
 ```yml
 services:
   db:
@@ -96,21 +105,23 @@ services:
       - redis
 ```
 
-Start the container by running
+Then, start the nextcloud container by running:
 ```bash
 docker compose up -d
 ```
 
-You can now access the setup page at the url https://localhost:8080
+You should now be able to access the setup page at the url `http://localhost:8080`.
+
+![[create-admin-account.png]]
 
 ---
 ## Configure HTTPS
 
-To configure HTTPS protocol, and access securely our server, we will use [caddy]() as a reverse proxy.
+Using HTTPS on a self-hosted cloud service is crucial to ensure data privacy and integrity by encrypting communications, and to protect against man-in-the-middle attacks. To securely access your server, it's crucial to enable the HTTPS protocol.
 
-Check out my guide [[01-caddy-in-docker]] to see how to configure [caddy]() with docker.
+To achieve this, we will use the Caddy reverse proxy because of it's simplicity. Check out my guide [[01-caddy-in-docker]] to see how to configure it using docker.
 
-You can add the basic configuration below in your `Caddyfile` :
+You can add the basic `reverse_proxy` configuration below in your `Caddyfile` :
 
 ```text
 cloud.domain.name {
@@ -127,7 +138,7 @@ handle @nextcloud {
 }
 ```
 
-Add the required environment variable used for reverse proxying http requests :
+Add the necessary environment variables for reverse proxying HTTP requests:
 
 ```txt {7-10}
 MYSQL_ROOT_PASSWORD=<root_password>
@@ -145,9 +156,7 @@ OVERWRITEHOST=cloud.domain.name
 > [!note]
 > You can get the ip of the caddy container ip with the command `docker exec -it caddy ifconfig eth0 | awk -F ' *|:' '/inet addr/{print $4}'`
 
-, edit the 
-
-Then, edit the the nextcloud `docker-compose.yml` to add the  `caddy` network :
+Next, edit the Nextcloud `docker-compose.yml` file to include the `caddy` network:
 
 ```yml {5-6} {20-21} {27-29} {38-41} {50-51} {60-64}
 services:
@@ -216,12 +225,12 @@ networks:
   internal: {}
 ```
 
-Here, only the `nextcloud-app` need to be accessed by caddy. All the other services are isolated into an internal network, to avoid confrontation with other services. For example an other `redis` instance.
-
 > [!note] Note
-> You can also remove the port mapping since the service will be accessible with the subdomain.
+> The name of the `caddy` network may vary based on your configuration and the name you've assigned to it.
 
-Now you can restart the nextcloud service using the command :
+Here, only the `nextcloud-app` service needs to be accessed by Caddy. All other services are isolated within an internal network to prevent conflicts with other services, such as a separate `redis` instance. Additionally, you can remove the port mapping since the service will be accessible via the subdomain through Caddy.
+
+Now you can restart the Nextcloud service using the command :
 
 ```
 docker compose down && docker compose up -d
@@ -231,13 +240,12 @@ You can now access your nextcloud instance using `https://cloud.domain.name`!
 
 ## Add SMTP
 
-SMTP settings are used to send mail to users using the nextcloud service.
+SMTP settings enable the Nextcloud service to send email notifications to users. It can be useful to reset a password for example.
 
 > [!note] Note
-> In this example I will be using SMTP service with a gmail address. You should be able to use it with a different email provider compatible with SMTP.
+> In this example, I will use Gmail's SMTP service. However, you can easily adapt these settings for any other email provider that supports SMTP.
 
-
-To configure the mail service, add in the `.env` file the environment variable below :
+To configure the mail service, you will need to add the following environment variables to your `.env` file:
 
 ```txt {11-17}
 MYSQL_ROOT_PASSWORD=<root_password>
@@ -262,8 +270,7 @@ MAIL_DOMAIN=cloud.domain.name
 > [!warning] Warning
 > If you have 2FA enabled on your gmail account, you can't use your regular password with gmail. You will need to generate an app password like described here: https://support.google.com/accounts/answer/185833?hl=en
 
-
-The final docker-compose.yml file should look like this :
+The final `docker-compose.yml` file should look like this:
 
 ```yml {44-50}
 services:
@@ -342,10 +349,14 @@ networks:
 
 ```
 
-You should see the correct settings in the admin panel here `https://cloud.domain.name/settings/admin`.
+You should see the correct settings reflected in the admin panel accessible here: `https://cloud.domain.name/settings/admin`.
+
+## Conclusion
+
+By following these steps, you've successfully configured Nextcloud with Docker and set up secure HTTPS access using Caddy. Your Nextcloud instance is now capable of sending email notifications through your chosen SMTP service. With everything in place, you can enjoy a secure and fully functional private cloud storage solution.
 
 ---
-## Ressources
+## Resources
 
 - Docker image: https://hub.docker.com/_/nextcloud/
 - Caddy documentation: https://caddyserver.com/docs/
