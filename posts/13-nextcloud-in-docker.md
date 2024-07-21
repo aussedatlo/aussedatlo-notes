@@ -8,8 +8,6 @@ date: 2024-06-23
 description: How to configure your pesonal Home server with Nextcloud, Caddy and Docker
 icon: ☁️
 ---
-> [!warning] Work in progress
-
 ---
 
 ## Intro
@@ -20,7 +18,6 @@ Setting up Nextcloud using Docker simplifies the deployment process, providing a
 
 In this blog, we'll walk you through the basics of configuring Nextcloud in Docker, enabling you to set up your private cloud quickly and efficiently.
 
-
 ---
 ## Prerequisite
 
@@ -29,7 +26,6 @@ Before we start, ensure you have the following prerequisites:
 - A server or machine with Docker installed.
 - Basic understanding of Docker concepts such as containers, images, and volumes.
 - Docker Compose.
-
 
 ---
 ## Installation
@@ -51,7 +47,7 @@ MYSQL_HOST=db
 REDIS_HOST=redis
 ```
 
-Make sure to replace `<root_password>`, `<mysql_password>` and `<hostname>` with your actual credentials and server details..
+Make sure to replace `<root_password>`, `<mysql_password>` and `<hostname>` with your actual credentials and server details.
 
 Create a `docker-compose.yml` file with following the content:
 
@@ -232,12 +228,13 @@ Here, only the `nextcloud-app` service needs to be accessed by Caddy. All other 
 
 Now you can restart the Nextcloud service using the command :
 
-```
+```bash
 docker compose down && docker compose up -d
 ```
 
 You can now access your nextcloud instance using `https://cloud.domain.name`!
 
+---
 ## Add SMTP
 
 SMTP settings enable the Nextcloud service to send email notifications to users. It can be useful to reset a password for example.
@@ -351,6 +348,7 @@ networks:
 
 You should see the correct settings reflected in the admin panel accessible here: `https://cloud.domain.name/settings/admin`.
 
+---
 ## Conclusion
 
 By following these steps, you've successfully configured Nextcloud with Docker and set up secure HTTPS access using Caddy. Your Nextcloud instance is now capable of sending email notifications through your chosen SMTP service. With everything in place, you can enjoy a secure and fully functional private cloud storage solution.
@@ -358,6 +356,7 @@ By following these steps, you've successfully configured Nextcloud with Docker a
 ---
 ## Resources
 
+- Nextcloud website: https://nextcloud.com/
 - Docker image: https://hub.docker.com/_/nextcloud/
 - Caddy documentation: https://caddyserver.com/docs/
 - Google App password: https://support.google.com/accounts/answer/185833?hl=en
