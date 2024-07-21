@@ -4,6 +4,8 @@ tags:
   - caddy
   - quartz
   - obsidian
+  - self-host
+  - deployment
 date: 2023-12-26
 description: Learn to serve static websites generated with Quartz v4 from Obsidian Vault using only Caddy.
 icon: ✨

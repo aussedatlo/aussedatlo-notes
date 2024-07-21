@@ -6,6 +6,8 @@ tags:
   - caddy
   - privacy
   - email
+  - cloud
+  - self-host
 date: 2024-06-23
 description: How to configure your pesonal Home server with Nextcloud, Caddy and Docker
 icon: ☁️

@@ -4,6 +4,7 @@ tags:
   - caddy
   - plugins
   - docker
+  - self-host
 date: 2023-12-22
 description: How to unlock new features in Caddy by seamlessly installing plugins in a native or Docker environment.
 icon: 📦

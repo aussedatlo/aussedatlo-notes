@@ -7,6 +7,7 @@ tags:
   - caddy
   - docker
   - privacy
+  - self-host
 date: 2024-01-24
 description: How to setup AdGuard Home on your home server to protect all your devices from intrusive advertising and tracking.
 icon: 👁️‍🗨️

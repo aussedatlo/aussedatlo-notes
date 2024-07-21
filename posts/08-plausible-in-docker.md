@@ -5,6 +5,7 @@ tags:
   - caddy
   - plausible
   - analytics
+  - self-host
 date: 2024-01-04
 description: Lightweight, privacy focusing, opensource, self hostable web analytics tool for your personal website.
 icon: 📊

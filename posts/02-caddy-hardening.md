@@ -4,6 +4,7 @@ tags:
   - caddy
   - docker
   - security
+  - self-host
 date: 2023-12-18
 description: Learn quick and simple security tips to protect your Caddy instance against potential threats.
 icon: 🔒

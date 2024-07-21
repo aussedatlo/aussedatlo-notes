@@ -4,6 +4,7 @@ tags:
   - docker
   - fail2ban
   - security
+  - self-host
 date: 2023-12-21
 description: Defend your services from potential threats using Fail2Ban, an advanced log monitoring, in a Docker environment.
 icon: 📛

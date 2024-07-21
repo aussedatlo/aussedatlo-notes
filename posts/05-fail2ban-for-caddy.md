@@ -5,6 +5,7 @@ tags:
   - fail2ban
   - security
   - docker
+  - self-host
 date: 2023-12-23
 description: How to configure Fail2Ban to block undesired traffic attempting to access services behind Caddy.
 icon: 🛡️

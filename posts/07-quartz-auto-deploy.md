@@ -7,6 +7,7 @@ tags:
   - quartz
   - docker
   - obsidian
+  - self-host
 description: Customize you Caddy configuration to handle automatic deployment of your static Quartz website using GitHub webhooks.
 icon: 🚀
 date: 2023-12-28

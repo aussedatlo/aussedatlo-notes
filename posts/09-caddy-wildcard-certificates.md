@@ -3,6 +3,8 @@ tags:
   - caddy
   - docker
   - wildcard-certificates
+  - self-host
+  - security
 date: 2024-01-17
 title: Caddy Wildcard Certificates
 description: How to configure your Caddy instance with Wildcard Certificates to quickly setup new services through reverse proxy.
