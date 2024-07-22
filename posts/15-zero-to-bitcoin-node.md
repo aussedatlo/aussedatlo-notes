@@ -38,24 +38,14 @@ Before we start, ensure you have the following prerequisites:
 ---
 ## Bitcoin node
 
+To facilitate integration with other services, create a docker network using the command:
 ```bash
 docker network create --driver=bridge --subnet=192.168.10.0/28 --gateway=192.168.10.1 bitcoin-network
 ```
 
+Create a `bitcoin` folder and add the `docker-compose.yml` file with the content below:
 ```yml
 services:
-  tor:
-    image: dockurr/tor
-    container_name: bitcoind_tor
-    networks:
-      internal:
-        ipv4_address: 10.254.0.2
-    volumes:
-      - ./tor/config:/etc/tor
-      - ./tor/data:/var/lib/tor
-    stop_grace_period: 1m
-    restart: unless-stopped
-
   bitcoin:
     container_name: bitcoind
     user: 1000:1000
@@ -65,30 +55,58 @@ services:
     restart: unless-stopped
     stop_grace_period: 15m30s
     networks:
-      internal:
-        ipv4_address: 10.254.0.3
       bitcoin-network:
         ipv4_address: 192.168.10.2
-        #ports:
-      #- "8332:8332"
-      #- "28332:28332"
-      #- "28333:28333"
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-    depends_on:
-      - tor
 
 networks:
   bitcoin-network:
     name: bitcoin-network
     external: true
-  internal:
-    ipam:
-      config:
-        - subnet: 10.254.0.0/29
 ```
+
+Add the `./data/bitcoin.conf` file with the following content:
+```conf
+# RPC password
+rpcauth=<user>:<password>
+
+# bind on bitcoin-network ip
+rpcbind=192.168.10.2
+rpcallowip=192.168.10.0/28
+
+# bind on local for bitcoin-cli and other local tools
+rpcbind=127.0.0.1
+rpcallowip=127.0.0.1/32
+```
+
+You can generate the `<user>` and `<password>` data using the website [https://jlopp.github.io/bitcoin-core-rpc-auth-generator/](https://jlopp.github.io/bitcoin-core-rpc-auth-generator/). For example for the user `user` and password `password`, the result will be `rpcauth=user:a25ea0ca3f3d8ab20c3dce3959223427$05533202f12c57937a438c329fce23f9d2aff46b66db0d0d5ced785b4e598414`.
+
+You can now start the bitcoin daemon using the command:
+```bash
+docker cimpose up -d
+```
+
+Check the status using the command:
+```
+docker exec -it bitcoind bitcoin-cli -getinfo
+```
+
+The result should be something like:
+```
+Chain: main
+Blocks: 0
+Headers: 34041
+Verification progress: ▒░░░░░░░░░░░░░░░░░░░░ 0.0000%
+Difficulty: 1
+
+Network: in 0, out 7, total 7
+Version: 250000
+Time offset (s): 0
+Proxies: n/a
+Min tx relay fee rate (BTC/kvB): 0.00001000
+
+Warnings: (none)
+```
+
 ---
 ## Electrs
 
