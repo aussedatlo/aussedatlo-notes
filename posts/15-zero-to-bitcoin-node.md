@@ -36,7 +36,9 @@ Before we start, ensure you have the following prerequisites:
 
 
 ---
-## Bitcoin node
+## Bitcoin
+
+### Node configuration
 
 To facilitate integration with other services, create a docker network using the command:
 ```bash
@@ -105,6 +107,109 @@ Proxies: n/a
 Min tx relay fee rate (BTC/kvB): 0.00001000
 
 Warnings: (none)
+```
+
+### Tor network
+
+Connecting a Bitcoin node to the Tor network enhances privacy by hiding the node's public IP, allowing anonymity. In certain countries, using the Tor network also protects against censorship.
+
+To allow the bitcoin node to connect to other peers using the Tor network, we will create a proxy service in the `docker-compose.yml`
+
+Edit the file as following:
+```yml {2-13} {24-25} {28-29} {35-38}
+services:
+  tor:
+    image: dockurr/tor
+    container_name: bitcoind_tor
+    user: 100:100
+    networks:
+      internal:
+        ipv4_address: 10.254.0.2
+    volumes:
+      - ./tor/config:/etc/tor
+      - ./tor/data:/var/lib/tor
+    stop_grace_period: 1m
+    restart: unless-stopped
+
+  bitcoin:
+    container_name: bitcoind
+    user: 1000:1000
+    image: lncm/bitcoind:v25.0
+    volumes:
+      - ./data:/data/.bitcoin
+    restart: unless-stopped
+    stop_grace_period: 15m30s
+    networks:
+      internal:
+        ipv4_address: 10.254.0.3
+      bitcoin-network:
+        ipv4_address: 192.168.10.2
+    depends_on:
+      - tor
+
+networks:
+  bitcoin-network:
+    name: bitcoin-network
+    external: true
+  internal:
+    ipam:
+      config:
+        - subnet: 10.254.0.0/29
+```
+
+> [!note] Note
+> Here, we use another network, `internal`, to ensure only the Bitcoin service can access the Tor proxy. Since the Bitcoin configuration requires an IP address, it is more convenient to set a static IP for the internal network.
+
+Generate a Tor control password using the command:
+```bash
+docker run --rm -it dockurr/tor sh -c "tor --hash-password '<password>'"
+```
+
+The command should output something like (generated from `password` string):
+```txt
+16:DD7019314EE1206460EB8DE377D10DF7FEEDD07CB14DAC11003E1D7E64
+```
+
+Then, create the Tor configuration file `tor/config/torrc`:
+```
+HardwareAccel 1
+Log notice stdout
+DNSPort 10.254.0.2:8853
+SocksPort 10.254.0.2:9050
+ControlPort 10.254.0.2:9051
+DataDirectory /var/lib/tor
+
+HashedControlPassword <generated_password>
+```
+
+You can now verify that the Tor service works correctly by using the command:
+```
+docker compose up tor
+```
+
+> [!note] Note
+> If you encounter a warning saying `[warn] /var/lib/tor is not owned by this user (tor, 100) but by root (0). Perhaps you are running Tor as the wrong user?`, you can resolve it by running the command `sudo chown -R 100:100 ./tor/data` to set the correct permissions for the `tor` user in the `./tor/data` folder.
+
+Now, start all the services using:
+```bash
+docker compose up -d
+```
+
+Verify that bitcoin node is using tor network:
+```bash
+docker exec -it bitcoind bitcoin-cli -netinfo
+```
+
+The result should be something like:
+```text
+Bitcoin Core client v25.0.0 - server 70016/Satoshi:25.0.0/
+
+        onion   total   block
+in          0       0
+out        10      10       2
+total      10      10
+
+Local addresses: n/a
 ```
 
 ---
