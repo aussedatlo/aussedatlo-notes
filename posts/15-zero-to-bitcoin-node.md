@@ -157,6 +157,8 @@ networks:
         - subnet: 10.254.0.0/29
 ```
 
+![[bitcoin-tor.png]]
+
 > [!note] Note
 > Here, we use another network, `internal`, to ensure only the Bitcoin service can access the Tor proxy. Since the Bitcoin configuration requires an IP address, it is more convenient to set a static IP for the internal network.
 
