@@ -38,7 +38,7 @@ Before we start, ensure you have the following prerequisites:
 ---
 ## Bitcoin
 
-### Node configuration
+### Configuration
 
 To facilitate integration with other services, create a docker network using the command:
 ```bash
@@ -109,7 +109,7 @@ Min tx relay fee rate (BTC/kvB): 0.00001000
 Warnings: (none)
 ```
 
-### Tor network
+### Tor proxy
 
 Connecting a Bitcoin node to the Tor network enhances privacy by hiding the node's public IP, allowing anonymity. In certain countries, using the Tor network also protects against censorship.
 
@@ -217,6 +217,118 @@ Local addresses: n/a
 ---
 ## Electrs
 
+### Introduction
+
+**Electrs** (Electrum Rust Server) is a lightweight, fast, and efficient Electrum server implementation in Rust. It is designed to run alongside a Bitcoin full node, enabling users to self-host their own Electrum server with minimal additional hardware requirements beyond those needed for the full node.
+
+An Electrum server continuously indexes the Bitcoin blockchain, enabling users to efficiently track their wallets. Numerous wallets are compatible with an Electrum server, and by installing one on your own machine, you eliminate the need to rely on external servers for your data. This setup provides you with full control over your wallet information and enhances your privacy.
+
+### Configuration
+
+>[!NOTE] Note
+>Since there is no official Electrs Docker image available, we will create our own.
+
+Create a folder `electrs` and a `docker-compose.yml` file with the content below:
+```yml
+services:  
+ electrs:  
+   container_name: electrs  
+   build:    
+     context: ./  
+     args:    
+       VERSION: "v0.10.5"
+   image: docker-electrs  
+   volumes:
+     # electrs configuration file  
+     - ./config/config.toml:/data/.electrs/config.toml
+     # electrs database
+     - /data/electrs:/electrs/data
+     # bitcoind data, replace with the correct path
+     - /data/bitcoin:/data/.bitcoin:ro  
+   restart: always  
+   networks:  
+     bitcoin-network:  
+       ipv4_address: 192.168.10.3 
+   ports:
+     - 50001:50001
+```
+
+And a `Dockerfile`:
+```dockerfile
+# Based on
+# https://github.com/getumbrel/docker-electrs/blob/master/Dockerfile
+# https://github.com/iangregsondev/electrs-docker/blob/main/Dockerfile
+
+FROM rust:1-slim-bookworm AS builder
+
+ARG VERSION
+
+WORKDIR /build
+
+RUN apt-get update
+RUN apt-get install -y git clang cmake build-essential libsnappy-dev
+RUN apt-get install -y librocksdb-dev
+
+RUN git clone --branch $VERSION https://github.com/romanz/electrs .
+
+# cargo under QEMU building for ARM can consumes 10s of GBs of RAM...
+# Solution: https://users.rust-lang.org/t/cargo-uses-too-much-memory-being-run-in-qemu/76531/2
+ENV CARGO_NET_GIT_FETCH_WITH_CLI true
+
+RUN cargo build --release --bin electrs
+
+FROM debian:bookworm-slim
+
+RUN adduser --disabled-password --uid 1000 --home /data --gecos "" electrs
+USER electrs
+WORKDIR /data
+
+COPY --from=builder /build/target/release/electrs /bin/electrs
+
+# Electrum RPC
+EXPOSE 50001
+
+STOPSIGNAL SIGINT
+
+ENTRYPOINT ["electrs"]
+```
+
+You can now build the docker image using
+```bash
+docker compose build
+```
+
+Create the config file `config/config.toml` with the following content:
+```toml
+# Use password auth
+auth="<bitcoin_rpc_user>:<bitcoin-rpc-password>"
+
+# The listening RPC address of bitcoind port 8332
+daemon_rpc_addr = "192.168.10.2:8332"
+
+# The listening P2P address of bitcoind port 8333
+daemon_p2p_addr = "192.168.10.2:8333"
+
+# Directory where the index should be stored. It should have at least 70GB of free space.
+db_dir = "/electrs/data/"
+
+# bitcoin means mainnet. Don't set to anything else unless you're a developer.
+network = "bitcoin"
+
+# The address on which electrs should listen. Warning: 0.0.0.0 is probably a bad idea!
+# Tunneling is the recommended way to access electrs remotely.
+electrum_rpc_addr = "192.168.10.3:50001"
+
+# How much information about internal workings should electrs print. Increase before reporting a bug.
+log_filters = "INFO"
+```
+
+![[bitcoin-electrs.png]]
+
+And now you can start the container bu running:
+```bash
+docker compose up -d
+```
 
 ---
 ## Mempool
