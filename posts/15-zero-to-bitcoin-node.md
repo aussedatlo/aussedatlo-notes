@@ -8,11 +8,9 @@ tags:
   - network
   - self-host
 date: 2024-07-21
-description: Installing Bitcoin Node, Electrs, and Mempool with Docker Containers
+description: Installing Bitcoin Node and Electrs with Docker Containers
 icon: 🪙
 ---
-> [!warning] Work in progress
-
 ---
 ## Intro
 
@@ -22,7 +20,7 @@ A node ensures you have full control over your transactions, don't rely on other
 
 > Don't trust, verify...
 
-This guide will walk you through the process of installing a Bitcoin node, Electrs, and Mempool using Docker. By leveraging Docker, you can streamline the deployment and management of these services. Whether you're a developer or an enthusiast, this step-by-step tutorial will simplify your setup process. Let's dive into creating a robust and efficient Bitcoin node infrastructure.
+This guide will walk you through the process of installing a Bitcoin node and Electrs using Docker. By leveraging Docker, you can streamline the deployment and management of these services. Whether you're a developer or an enthusiast, this step-by-step tutorial will simplify your setup process. Let's dive into creating a robust and efficient Bitcoin node infrastructure.
 
 
 ---
@@ -331,13 +329,16 @@ docker compose up -d
 ```
 
 ---
-## Mempool
-
-
----
 ## Conclusion
+
+With this configuration, you now have a fully functioning Bitcoin node with an Electrum server alongside it, enabling you to perform secure and efficient transactions, manage your wallet, and serve lightweight clients by providing them with fast and reliable access to the Bitcoin blockchain.
+
 
 ---
 ## Resources
 
 - Photo by [Shubham Dhage](https://unsplash.com/@onefifith?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-group-of-blue-plastic-containers-OD793Oi3kEM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+- `bitcoin` Github: https://github.com/bitcoin/bitcoin
+- `bitcoin` Docker image: https://github.com/lncm/docker-bitcoind
+- `electrs` Github: https://github.com/romanz/electrs
+- `tor` Docker image: https://github.com/dockur/tor
