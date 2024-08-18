@@ -7,6 +7,7 @@ tags:
   - explorer
   - docker
   - caddy
+  - self-host
 date: 2024-08-18
 description: Step-by-step guide to connecting Mempool to your Bitcoin node
 icon: ⛓️
@@ -31,6 +32,7 @@ Before we start, ensure you have the following prerequisites:
 - Basic understanding of Docker concepts such as containers, images, and volumes.
 - Docker Compose.
 - A Bitcoin node with an Electrum server, see [[15-zero-to-bitcoin-node]] to see how to install both.
+- A Caddy server, see [[01-caddy-in-docker]] or [[09-caddy-wildcard-certificates]]
 
 ---
 ## Configuration
@@ -125,7 +127,6 @@ networks:
 
 > [!note] Note
 > Be sure to replace `bitcoin_rpc_user` and `bitcoin_rpc_password` with your actual credentials.
-
 
 Start the service using the command:
 ```bash
