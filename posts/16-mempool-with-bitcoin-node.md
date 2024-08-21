@@ -12,7 +12,6 @@ date: 2024-08-18
 description: Step-by-step guide to connecting Mempool to your Bitcoin node
 icon: ⛓️
 ---
-> [!warning] Work in progress
 
 ---
 ## Intro
