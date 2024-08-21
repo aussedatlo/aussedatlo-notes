@@ -28,7 +28,7 @@ Before we start, ensure you have the following prerequisites:
 
 To communicate from the shell environment to Signal, we will use the [signal-cli-rest-api](https://github.com/bbernhard/signal-cli-rest-api). This REST API is designed to call the [signal-cli](https://github.com/AsamK/signal-cli) binary under the hood.
 
-I prefer to use this REST application to avoid installing `signal-cli` directly on my server and to enable integration with other applications, such as `Home Assistant`.
+I prefer to use this REST application to avoid installing `signal-cli` directly on my server and to enable integration with other applications, such as [Home Assistant](https://www.home-assistant.io/integrations/signal_messenger/).
 
 To configure the service, create a `docker-compose.yml` file on a `signal` folder.
 
