@@ -155,7 +155,7 @@ Restart Caddy and visit the URL `mempool.domain.name`. You should see your Mempo
 ---
 ## Conclusion
 
-With Caddy handling the reverse proxy, and the appropriate access set up for `mempool-api`, `mempool-web`, and `mempool-db`, your Mempool instance should initialize smoothly, providing an efficient and reliable Bitcoin mempool monitoring experience.
+With Caddy handling the reverse proxy, and the appropriate access set up for `mempool-api`, `mempool-web`, and `mempool-db`, your Mempool instance should initialize smoothly, allowing you to securely and privately access all the blockchain informations through your local node, without relying on other services.
 
 ---
 ## Resources
