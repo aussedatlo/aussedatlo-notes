@@ -19,7 +19,7 @@ icon: ⛓️
 
 Mempool is a real-time web interface for visualizing Bitcoin's mempool, where unconfirmed transactions are stored. It provides detailed insights into transaction fees, mempool congestion, and network activity. Users can view transaction history, fee estimates, and the current state of the Bitcoin network.
 
-![[Screenshot 2024-08-21 at 18.38.32 1.png]]
+![[mempool-screenshot.png]]
 
 Self-hosting a mempool site alongside a Bitcoin node enhances your privacy by keeping transaction data within your control and not relying on third-party servers.
 
