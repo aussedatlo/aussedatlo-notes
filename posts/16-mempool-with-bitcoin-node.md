@@ -162,5 +162,4 @@ With Caddy handling the reverse proxy, and the appropriate access set up for `me
 ---
 ## Resources
 
-- Photo by [Shubham Dhage](https://unsplash.com/@theshubhamdhage?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-very-large-amount-of-chocolate-squares-a29VlbgH4wo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 - Mempool Github: https://github.com/mempool/mempool
