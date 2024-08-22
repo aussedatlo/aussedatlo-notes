@@ -11,7 +11,6 @@ date: 2024-08-21
 description: How to setup BorgBackup server to remotely backup your server
 icon: 💾
 ---
-> [!warning] Work in progress
 
 ---
 ## Intro
