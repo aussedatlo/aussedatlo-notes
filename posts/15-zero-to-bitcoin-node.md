@@ -190,6 +190,34 @@ docker compose up tor
 > [!note] Note
 > If you encounter a warning saying `[warn] /var/lib/tor is not owned by this user (tor, 100) but by root (0). Perhaps you are running Tor as the wrong user?`, you can resolve it by running the command `sudo chown -R 100:100 ./tor/data` to set the correct permissions for the `tor` user in the `./tor/data` folder.
 
+Update your `bitcoin.conf` file to add the tor configuration:
+
+```conf {9-20}
+# RPC password
+rpcauth=<user>:<password>
+
+# bind on bitcoin-network ip
+rpcbind=192.168.10.2
+rpcallowip=192.168.10.0/28
+
+# bind on local for bitcoin-cli and other local tools
+rpcbind=127.0.0.1
+rpcallowip=127.0.0.1/32
+
+# tor configuration
+onion=10.254.0.2:9050
+onlynet=onion
+torcontrol=10.254.0.2:9051
+torpassword=<tor_password>
+
+# allow incoming connections
+listen=1
+
+# disable direct connections
+bind=127.0.0.1
+bind=::1
+```
+
 Now, start all the services using:
 ```bash
 docker compose up -d
