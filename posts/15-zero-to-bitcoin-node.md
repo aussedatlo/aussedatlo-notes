@@ -192,7 +192,7 @@ docker compose up tor
 
 Update your `bitcoin.conf` file to add the tor configuration:
 
-```conf {9-20}
+```conf {12-23}
 # RPC password
 rpcauth=<user>:<password>
 
