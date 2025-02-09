@@ -212,10 +212,6 @@ torpassword=<tor_password>
 
 # allow incoming connections
 listen=1
-
-# disable direct connections
-bind=127.0.0.1
-bind=::1
 ```
 
 Now, start all the services using:
